@@ -15,13 +15,13 @@ kramdown:
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title: Yi Zeng
+title: Jin Dong
 description: "Personal blog for Yi Zeng, a software engineer based in Christchurch, New Zealand."
 # tagline: Site Tagline
 author:
-  name: Yi Zeng
+  name: Jin Dong
   username: yizeng
-  stackoverflow: 1177636/yi-zeng
+  stackoverflow: 4186131/jindong
   # twitter: username
   # feedburner: feedname
 
@@ -33,8 +33,8 @@ author:
 # Else if you are pushing to username.github.io, replace with your username.
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 #
-production_url: http://yizeng.me
-url: http://yizeng.me
+production_url: http://jindong.io
+url: http://jindong.io
 
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
@@ -90,7 +90,7 @@ JB:
   comments:
     provider: disqus
     disqus:
-      short_name: yizeng
+      short_name: jindong
       public_key: ULZ0b9TFdfCUJSKQd4WCKv2v3u25YoG7YG8zXPewkWrT35lZ0Se9YnxLzoV6VM8W
     livefyre:
       site_id: 123
