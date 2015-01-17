@@ -1,0 +1,28 @@
+---
+layout: page
+title: 博文分类
+header: 按分类排序
+description: "所有博文里所使用到的博文分类"
+group: navigation
+priority: 0.8
+---
+{% capture categories %}
+    {% for category in site.categories %}
+        {{ category[0] }}
+    {% endfor %}
+{% endcapture %}
+
+{% assign sorted_categories = categories | split:' ' | sort %}
+
+<ul class="tag_box categories inline">
+    {% assign categories_list = sorted_categories %}
+    {% include JB/categories_list %}
+</ul>
+
+{% for category in sorted_categories %}
+    <h3 id="category-{{ category | replace:' ','-' }}">{{ category }}</h3>
+    <ul class="posts">
+        {% assign pages_list = site.categories[category] %}
+        {% include JB/pages_list %}
+    </ul>
+{% endfor %}
