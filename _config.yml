@@ -109,7 +109,7 @@ JB:
   analytics:
     provider: google
     google:
-        tracking_id: 'UA-42466615-1'
+        tracking_id: 'UA-58648961-1'
     getclicky:
       site_id:
     mixpanel:
@@ -165,14 +165,14 @@ translations:
   # the-footer
   about: 'About'
   license: 'License'
-  license_link: 'https://github.com/yizeng/yizeng.me#license'
+  license_link: 'https://github.com/zhanjindong/zhanjindong.github.io#license'
   acknowledgements: 'Acknowledgements'
   acknowledgements_link: 'https://github.com/yizeng/yizeng.me/wiki/Acknowledgements'
   show_details: true
   job_title: 'a software developer'
   based_in: ' based in '
-  city: 'Christchurch'
-  country: 'New Zealand'
+  city: 'Hefei'
+  country: 'China'
   extra_info: ''
   back_to_top: 'Back to Top'
 
