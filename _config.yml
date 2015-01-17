@@ -16,11 +16,11 @@ kramdown:
 # so be sure to set them if your theme uses them.
 #
 title: Jin Dong
-description: "Personal blog for Yi Zeng, a software engineer based in Christchurch, New Zealand."
+description: "Personal blog for Jin Dong, a software engineer based in Hefei, China."
 # tagline: Site Tagline
 author:
   name: Jin Dong
-  username: yizeng
+  username: jindong
   stackoverflow: 4186131/jindong
   # twitter: username
   # feedburner: feedname
