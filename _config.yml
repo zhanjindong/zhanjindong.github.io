@@ -91,7 +91,7 @@ JB:
     provider: disqus
     disqus:
       short_name: jindong
-      public_key: ULZ0b9TFdfCUJSKQd4WCKv2v3u25YoG7YG8zXPewkWrT35lZ0Se9YnxLzoV6VM8W
+      public_key: CBAADSObcBoL6BApbjmxK5stsFmRJRcLP61Y8yQvnBbVoCJD30Th2O0jDQMAgDil
     livefyre:
       site_id: 123
     intensedebate:
