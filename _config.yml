@@ -113,7 +113,7 @@ JB:
     getclicky:
       site_id:
     mixpanel:
-        token: 'cd4f8c5df37ef872805e7ab03962f043'
+        token: 'aadab76baf234d23bfad2ed9ae4a93ae'
 
   # Settings for sharing helper. 
   # Sharing is for things like tweet, plusone, like, reddit buttons etc.
