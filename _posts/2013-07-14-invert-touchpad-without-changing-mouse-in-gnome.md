@@ -45,6 +45,14 @@ Gsettings 有一个图形化工具叫做 "dconf-editor"， 它使用二进制大
 <img itemprop="image" data-src="/assets/images/posts/112339402123972.png" src="/assets/js/unveil/loader.gif" alt="" />
 </a>
 
+<a class="post-image" href="/assets/images/posts/112131018686575.png">
+<img itemprop="image" data-src="/assets/images/posts/112131018686575.png" src="/assets/js/unveil/loader.gif" alt="112131018686575.png" />
+</a>
+
+<a class="post-image" href="/assets/images/posts/112131018686575.png">
+<img itemprop="image" data-src="/assets/images/posts/112131018686575.png" src="/assets/js/unveil/loader.gif" alt="112131018686575.png" />
+</a>
+
 ## 反转鼠标
 {: #invert-mouse}
 
