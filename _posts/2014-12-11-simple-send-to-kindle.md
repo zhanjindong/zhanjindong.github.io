@@ -158,6 +158,8 @@ arg 1:chrome-extension://oojaanpmaapemaihjbebgojmblljbhhh/
 
 所以我就想Java能不能直接从Windows句柄读数据，因为Java确实提供了一个FileDescriptor类，但折腾了半天发现原生的Java并不支持这么干。最后没办法下，想出了非常丑陋的解决办法，利用C#来做下中转，所以才多了个startup.exe，C#代码写的很顺利，这也让我对Java是累感不爱啊。
 
+<a class="show-hidden">Show</a> 
+{% hide %} 
 {% highlight c# %} 
 using System;
 using System.Collections.Generic;
@@ -267,6 +269,7 @@ namespace Startup
     }
 }
 {% endhighlight %} 
+{% endhide %}
 
 
 
