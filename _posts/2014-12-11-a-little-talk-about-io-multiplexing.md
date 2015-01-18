@@ -5,6 +5,7 @@ description: "简单聊下IO复用"
 categories: [articles]
 tags: [IO]
 alias: [/2014/11/03/]
+utilities: highlight
 ---
 
 **没图，不分析API**
