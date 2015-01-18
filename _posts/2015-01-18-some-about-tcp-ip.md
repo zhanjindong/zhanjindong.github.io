@@ -7,7 +7,8 @@ tags: [TCP&IP]
 alias: [/2015/01/18/]
 ---
 
-```
+
+{% highlight C# %}
 static void Main(string[] args)
         {
             Console.WriteLine("Main Thread Id: {0}\r\n", Thread.CurrentThread.ManagedThreadId);
@@ -32,4 +33,4 @@ static void Main(string[] args)
                 return "zhanjindong";
             });
         }
-```
+{% endhighlight %}
