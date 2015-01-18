@@ -93,7 +93,7 @@ sstk.debug.sendMail = false
 </a>
 
 <a class="post-image" href="/assets/images/posts/112339402123972.png">
-<img itemprop="image" data-src="/assets/images/posts/112339402123972.png" src="/assets/js/unveil/loader.gif" alt="112339402123972.png" />
+<img itemprop="image" data-src="/assets/images/posts/112339402123972.png" src="/assets/js/unveil/loader.gif" alt="" />
 </a>
 
 ## 遇到的一些问题
