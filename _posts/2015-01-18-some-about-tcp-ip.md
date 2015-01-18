@@ -6,11 +6,6 @@ categories: [notes]
 tags: [TCP&IP]
 alias: [/2015/01/18/]
 ---
-# TCP&IP相关
-
-标签（空格分隔）： TCP/IP
-
----
 ## TCP Flags
 
 ## TCP Options
