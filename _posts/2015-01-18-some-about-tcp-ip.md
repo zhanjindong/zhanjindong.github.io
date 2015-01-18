@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "TCP/IP相关"
-description: "TCP/IP相关"
+title: "TCP&IP相关"
+description: "TCP&IP相关"
 categories: [notes]
-tags: [TCP/IP]
+tags: [TCP&IP]
 alias: [/2015/01/18/]
 ---
-# TCP/IP相关
+# TCP&IP相关
 
 标签（空格分隔）： TCP/IP
 
