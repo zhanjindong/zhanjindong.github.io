@@ -5,6 +5,7 @@ description: "C#的Task和Java的Future"
 categories: [articles]
 tags: [C#,Java]
 alias: [/2014/03/08/]
+utilities: fancybox, unveil, highlight
 ---
 
 自从项目中语言换成Java后就很久没有看C#了，但说实话我是身在曹营心在汉啊。早就知道.NET4.5新增了`async`和`await`但一直没有用过，今天看到[这篇文章][1]总算有了点了解，突然发现`Task`这个玩意不就是Java中`Future`这个概念吗？
@@ -87,12 +88,20 @@ static ExecutorService service = Executors.newFixedThreadPool(10);
 
 当然上面的代码为了说明都冗余了点，输出的结果自然也是一样的：
 
-![此处输入图片的描述][3]
-![此处输入图片的描述][4]
+<a class="post-image" href="/assets/images/posts/c-result.png">
+<img itemprop="image" data-src="/assets/images/posts/c-result.png" src="/assets/js/unveil/loader.gif" alt="c-result.png" />
+</a>
+
+<a class="post-image" href="/assets/images/posts/Java-result.png">
+<img itemprop="image" data-src="/assets/images/posts/Java-result.png" src="/assets/js/unveil/loader.gif" alt="Java-result.png" />
+</a>
+
 
 说“等价”是因为无论是Task还是Future都是为了对异步操作进行封装，Java中`Future.get`相当于C#中的`Task.Result`。`await name`不过是一个语法糖而已（但这语法糖很重要，async和await能让我们以写同步代码的方式实现异步的逻辑）。做一件正确的事的思路往往是一样的，但是实现的细节总是有差别。这次我倒似乎更喜欢Java中Future这个名词，直观明了。但C#还是一如既往的讳莫如深（[不过已经进步很大了][5]），这一点也是经常遭业界同仁所诟病，还好我有IL：
 
-![此处输入图片的描述][6]
+<a class="post-image" href="/assets/images/posts/state-machine.png">
+<img itemprop="image" data-src="/assets/images/posts/state-machine.png" src="/assets/js/unveil/loader.gif" alt="state-machine.png" />
+</a>
 
 咦？状态机让我立马想到了[yield return][7]，怪不得我觉得`await`和`yield return`有点神似呢。这也许就是我更喜欢C#的原因：设计上的**一致性**。
 
@@ -101,8 +110,5 @@ static ExecutorService service = Executors.newFixedThreadPool(10);
 
   [1]: http://www.cnblogs.com/jesse2013/p/3560999.html#
   [2]: http://www.cnblogs.com/jesse2013/p/3560999.html#parameters
-  [3]: http://jindong.io/assets/images/posts/c-result.png
-  [4]: /assets/images/posts/Java-result.png
   [5]: http://referencesource.microsoft.com/
-  [6]: http://jindong.io/assets/images/posts/state-machine.png
   [7]: http://zhanjindong.info/2013/09/01/%E5%8F%AF%E6%83%9Cjava%E4%B8%AD%E6%B2%A1%E6%9C%89yield-return/
