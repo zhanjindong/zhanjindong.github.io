@@ -5,7 +5,7 @@ description: "【开源一个小工具】一键将网页内容推送到Kindle"
 categories: [articles]
 tags: [Kindle]
 alias: [/2014/12/11/]
-utilities: fancybox, unveil
+utilities: fancybox, unveil, highlight, show-hidden
 ---
 
 最近工作上稍微闲点，这一周利用下班时间写了一个小工具，其实功能挺简单但也小折腾了会。
@@ -271,7 +271,165 @@ namespace Startup
 {% endhighlight %} 
 {% endhide %}
 
+### Chrome扩展获取当前页面的url
+园子里那个例子里是在content_script.js里用document.URL，但是我发现这有个问题，每次必须重新加载页面，不然这个值好像全局就一个。发现用chrome.tabs.getSelected这个事件监听更好些：
 
+<a class="show-hidden">{{ site.translations.show }}</a> 
+{% hide %} 
+{% highlight javascript %} 
+chrome.tabs.getSelected(null,function(tab) {
+    var port = null;
+    var nativeHostName = "so.zjd.sstk";
+    port = chrome.runtime.connectNative(nativeHostName);
+
+    port.onMessage.addListener(function(msg) { 
+        //console.log("Received " + msg); 
+        $("#message").text(msg.text);
+    });
+
+    port.onDisconnect.addListener(function onDisconnected(){
+        //console.log("connetct native host failure:" + chrome.runtime.lastError.message);
+        port = null;
+        //$("#message").text("Finished!");
+    });
+     
+    port.postMessage(encodeURI(tab.url)) 
+
+});
+
+popup.js
+{% endhighlight %} 
+{% endhide %}
+
+### 图片解析
+其实右键将网页另存为为html后就能利用kindlegen生成mobi文件了，或者利用Amazon的邮箱服务直接将html文件发送给Kindle，也能自动转换成mobi。但是之所以要写这个工具的原因就是kindlegen也好，kindle邮箱服务也好都不会去主动下载页面里的图片，kindlegen需要你将页面里图片或其他资源的地址转换成相对路径，然后将资源统一放在一个文件家里。
+
+<a class="post-image" href="/assets/images/posts/112227135716583.png">
+<img itemprop="image" data-src="/assets/images/posts/112227135716583.png" src="/assets/js/unveil/loader.gif" alt="" />
+</a>
+
+<a class="post-image" href="/assets/images/posts/112228305718840.png">
+<img itemprop="image" data-src="/assets/images/posts/112228305718840.png" src="/assets/js/unveil/loader.gif" alt="" />
+</a>
+
+所以处理也很简单解析页面img元素内容，自己将图片下载下来然后将src替换成相对路径就OK了，需要注意的就是网页图片引用的几种方式：http://www.test.com/dir1/dir2/test.html
+
+{% highlight C# %}
+./images/mem/figure9.png  →  http://www.test.com/dir1/dir2/images/mem/figure9.png
+images/mem/figure9.png    →  http://www.test.com/dir1/dir2/images/mem/figure9.png
+/images/mem/figure9.png   →  http://www.test.com/images/mem/figure9.png
+../../images/mem/figure9.png  →  http://www.test.com/figure.png 
+{% endhighlight %}
+
+.表示当前目录
+..表示上级目录
+代码大致如下：
+
+<a class="show-hidden">{{ site.translations.show }}</a> 
+{% hide %} 
+{% highlight java %} 
+private String processRelativeUrl(String url) {
+        if (url.startsWith("http://")) {
+            return url;
+        }
+        String pageUrl = this.page.getUrl();
+        int relative = 0;
+        int index = 0;
+        if (url.startsWith("/")) {
+            relative = -1;
+        } else {
+            while (true) {
+                index = 0;
+                if (url.startsWith("./")) {// 当前目录
+                    index = url.indexOf("./");
+                    url = url.substring(index + 2);
+                    continue;
+                } else if (url.startsWith("../")) {// 上级目录
+                    relative++;
+                    index = url.indexOf("../");
+                    url = url.substring(index + 3);
+                    continue;
+                } else {// 当前目录
+                    break;
+                }
+            }
+        }
+        if (relative == -1) {
+            index = pageUrl.indexOf('/', 7);
+            pageUrl = pageUrl.substring(0, index);
+            url = url.substring(1);
+        } else {
+            for (int i = 0; i <= relative; i++) {
+                index = pageUrl.lastIndexOf("/");
+                if (index == -1) {
+                    break;
+                }
+                pageUrl = pageUrl.substring(0, index);
+            }
+        }
+        url = pageUrl + "/" + url;
+
+        return url;
+    }
+
+popup.js
+{% endhighlight %} 
+{% endhide %}
+
+本来是打算也处理CSS的，结果发现CSS反而会导致生成的mobi格式错乱就算了。
+
+### 页面乱码
+有的网页的meta元素并不规范会导致kindlegen生成的mobi文件乱码，比如：
+
+	<meta charset="UTF-8">
+
+需要处理下：
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+### 一些网站防止恶意抓取的问题
+有些网站的页面为了防止网络爬虫恶意抓取内容会对HTTP请求的User-Agent进行简单验证，这种情况简单模拟下浏览器的UA就可以绕过了，这也说明了恶意的抓取确实很难杜绝，前几天园子里好像还有人提到这个。这里有个疑问：到底什么样的行为算恶意抓取，就我本人来说肯定不会有任何恶意。
+
+<a class="post-image" href="/assets/images/posts/112244162757158.png">
+<img itemprop="image" data-src="/assets/images/posts/112244162757158.png" src="/assets/js/unveil/loader.gif" alt="" />
+</a>
+
+## 存在的问题
+
+写的比较匆忙，还存在很多问题：
+
+1、Chrome插件没界面、没用户体验，只是为了实现功能；
+
+2、需要C#程序来做中转，这个太恶心了，结果工具一点也不simple；
+
+3、有的中文网页会导致生成的mobi文件乱码，肯定是网页编码方便的问题，有时间再看看；
+
+4、生成的mobi文件比较大，可以考虑对内容进行裁剪；
+
+5、不支持将页面选中的内容推送到Kindle；
+
+6、如果页面有代码或排版不好，显示比较乱，可读性比较差；
+
+7、未考虑Kindle不支持的图片格式，其实大部分情况就哪几种图片;
+
+8、Linux平台支持，其实kindlegen有linux下的版本，Chrome扩展本身在什么平台下都能用。
+
+另外才关注开源没多久，Github上提交的代码质量有待提高。
+
+## 一些资源
+前面提到写这个工具的过程中其实发掘了一些很不错的工具和服务，这里推荐给大家：
+. [KDP(Amazon Kindle Direct Publishing)][3]:亚马逊提供的一个服务。
+. [HTML-to-MOBI][4]:一个在线的将网页转换成mobi文件的服务，但是好像图片处理也有问题。
+. [用JS将markdown转成mobi，epub等电子书格式。][5]
+. [Java mobi metadata editor][6]:一个小工具可以用来编辑mobi的元数据。
+. [kindle book development tool][7]:貌似是一个收费的工具。
+. Calibre:一个非常强大的免费电子书管理和生成工具，推荐这篇文章[抓取网页内容生成Kindle电子书][8]。
+. [RssToMobiService][9]:Github上一个抓取RSS生成mobi文件发送到Kindle的工具，很不错的。
+
+## 写在最后
+今天写完才发现，原来Amazon官方就有一个插件叫Send to Kindle，而且支持各种浏览器，很好很强大，需要的同学直接用官方的吧，这么晚码字很辛苦，没有功劳也有苦劳，如果觉得不错给个推荐吧~
+
+写这个工具最大的收获就是：有想法就去做，just do it!
 
  [1]: http://chrome.liuyixi.com/getstarted.html。
  [2]: http://www.cnblogs.com/guogangj/p/3235703.html
