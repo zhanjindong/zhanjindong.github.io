@@ -142,6 +142,9 @@ path是本地程序的路径，除了注意程序的权限问题外，还要注�
 
 Chrome是通过系统的标准输入输出和本地程序进行通信，具体协议如下：
 
+> Chrome 浏览器在单独的进程中启动每一个原生消息通信宿主，并使用标准输入（stdin）与标准输出（stdout）与之通信。向两个方向发送消息时使用相同的格式：每一条消息使用 JSON 序列化，以 UTF-8 编码，并在前面附加 32 位的消息长度（使用本机字节顺序）。
+
+
 
  [1]: http://chrome.liuyixi.com/getstarted.html。
  [2]: http://www.cnblogs.com/guogangj/p/3235703.html
