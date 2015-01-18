@@ -5,7 +5,7 @@ description: "【开源一个小工具】一键将网页内容推送到Kindle"
 categories: [articles]
 tags: [Kindle]
 alias: [/2014/12/11/]
-utilities: fancybox, unveil, highlight, hide
+utilities: highlight, show-hidden
 ---
 
 最近工作上稍微闲点，这一周利用下班时间写了一个小工具，其实功能挺简单但也小折腾了会。
