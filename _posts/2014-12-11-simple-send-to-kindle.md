@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "【开源一个小工具】一键将网页内容推送到Kindle"
+title: "开源一个小工具：一键将网页内容推送到Kindle"
 description: "【开源一个小工具】一键将网页内容推送到Kindle"
 categories: [articles]
 tags: [Kindle]
