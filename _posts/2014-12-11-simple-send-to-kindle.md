@@ -27,7 +27,7 @@ utilities: fancybox, unveil
 1、用mvn assembly打包，打包后目录如下：
 
 <a class="post-image" href="/assets/images/posts/112049477124106.png">
-<img height="200" width="200" itemprop="image" data-src="/assets/images/posts/112049477124106.png" src="/assets/js/unveil/loader.gif" alt="112049477124106.png" />
+<img itemprop="image" data-src="/assets/images/posts/112049477124106.png" src="/assets/js/unveil/loader.gif" alt="112049477124106.png" />
 </a>
 
 2、工具可以放到任何地方，然后执行setup.bat这个脚本。
