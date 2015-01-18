@@ -427,12 +427,19 @@ popup.js
 
 前面提到写这个工具的过程中其实发掘了一些很不错的工具和服务，这里推荐给大家：
 . [KDP(Amazon Kindle Direct Publishing)][3]:亚马逊提供的一个服务。
+
 . [HTML-to-MOBI][4]:一个在线的将网页转换成mobi文件的服务，但是好像图片处理也有问题。
+
 . [用JS将markdown转成mobi，epub等电子书格式。][5]
+
 . [Java mobi metadata editor][6]:一个小工具可以用来编辑mobi的元数据。
+
 . [kindle book development tool][7]:貌似是一个收费的工具。
+
 . Calibre:一个非常强大的免费电子书管理和生成工具，推荐这篇文章[抓取网页内容生成Kindle电子书][8]。
+
 . [RssToMobiService][9]:Github上一个抓取RSS生成mobi文件发送到Kindle的工具，很不错的。
+
 
 ## 写在最后
 {: #written-in-end-of }
