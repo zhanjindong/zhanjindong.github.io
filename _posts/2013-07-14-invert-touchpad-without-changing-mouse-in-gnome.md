@@ -42,7 +42,7 @@ Gsettings 有一个图形化工具叫做 "dconf-editor"， 它使用二进制大
 4. 在 `touchpad` 下点选子键 `left-handed` 并将其键值设置为 `left`。
 
 <a class="post-image" href="/assets/images/posts/112339402123972.png">
-<img itemprop="image" data-src="/assets/images/posts/112339402123972.png" src="/assets/js/unveil/loader.gif" alt="Invert touchpad from dconf-editor" />
+<img itemprop="image" data-src="/assets/images/posts/112339402123972.png" src="/assets/js/unveil/loader.gif" alt="" />
 </a>
 
 ## 反转鼠标
