@@ -144,6 +144,133 @@ Chrome是通过系统的标准输入输出和本地程序进行通信，具体�
 
 > Chrome 浏览器在单独的进程中启动每一个原生消息通信宿主，并使用标准输入（stdin）与标准输出（stdout）与之通信。向两个方向发送消息时使用相同的格式：每一条消息使用 JSON 序列化，以 UTF-8 编码，并在前面附加 32 位的消息长度（使用本机字节顺序）。
 
+协议其实很简单，但是这块却浪费了我好长时间，我用Java死活无法读取Chrome写入标准输入的内容，总是报下面的错误：
+
+<a class="post-image" href="/assets/images/posts/112211153535342.png">
+<img itemprop="image" data-src="/assets/images/posts/112211153535342.png" src="/assets/js/unveil/loader.gif" alt="" />
+</a>
+
+一开始怀疑自己的写的代码有问题，网上搜了半天有说是JDK的问题，我重装还是不行。后来我发现Chrome传给程序其实有两个参数，一个windwos的句柄，一个Chrome扩展的ID：
+{% highlight c#%}
+arg 0:--parent-window=3349886
+arg 1:chrome-extension://oojaanpmaapemaihjbebgojmblljbhhh/
+{% endhighlight %}
+
+所以我就想Java能不能直接从Windows句柄读数据，因为Java确实提供了一个FileDescriptor类，但折腾了半天发现原生的Java并不支持这么干。最后没办法下，想出了非常丑陋的解决办法，利用C#来做下中转，所以才多了个startup.exe，C#代码写的很顺利，这也让我对Java是累感不爱啊。
+
+<a class="show-hidden">{{ site.translations.show }}</a> 
+{% hide %} 
+{% highlight c# %} 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.Diagnostics;
+
+namespace Startup
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+                if (!Directory.Exists(System.AppDomain.CurrentDomain.BaseDirectory + "\\log"))
+                {
+                    Directory.CreateDirectory(System.AppDomain.CurrentDomain.BaseDirectory + "\\log");
+                }
+
+                if (args.Length == 0)
+                {
+                    WriteStandardStreamOut("Missing parameter.");
+                    Log2File("Missing parameter.");
+                    return;
+                }
+
+                string url = ReadStandardStreamIn();
+                Log2File("Running SimpleSendToKindle.jar with url:" + url);
+                string ret = RunJar(url);
+                Log2File("Completed with return msg:" + ret);
+                WriteStandardStreamOut("{\"text\":\"" + ret + "\"}");
+            }
+            catch (Exception ex)
+            {
+                Log2File("Error:" + ex.ToString());
+                WriteStandardStreamOut("{\"text\":\"" + "Error." + ex.Message + "\"}");
+            }
+        }
+
+        static string RunJar(string arg)
+        {
+            ProcessStartInfo startInfo = new ProcessStartInfo()
+            {
+                WorkingDirectory = System.AppDomain.CurrentDomain.BaseDirectory,
+                UseShellExecute = false,//要重定向 IO 流，Process 对象必须将 UseShellExecute 属性设置为 False。
+                CreateNoWindow = true,
+                RedirectStandardOutput = true,
+                //RedirectStandardInput = false,
+                WindowStyle = ProcessWindowStyle.Normal,
+                FileName = "java.exe",
+                Arguments = @" -Dfile.encoding=utf-8 -jar SimpleSendToKindle.jar " + arg,
+            };
+            //启动进程
+            using (Process process = Process.Start(startInfo))
+            {
+                process.Start();
+                //process.WaitForExit();
+                using (StreamReader reader = process.StandardOutput)
+                {
+                    return reader.ReadToEnd();
+                }
+            }
+        }
+
+        static void Log2File(string s)
+        {
+            FileStream fs = new FileStream(System.AppDomain.CurrentDomain.BaseDirectory + @"log/startup.log", FileMode.Append);
+            StreamWriter sw = new StreamWriter(fs, Encoding.UTF8);
+            sw.WriteLine(s);
+            sw.Close();
+            fs.Close();
+        }
+
+        static string ReadStandardStreamIn()
+        {
+            using (Stream stdin = Console.OpenStandardInput())
+            {
+                int length = 0;
+                byte[] bytes = new byte[4];
+                stdin.Read(bytes, 0, 4);
+                length = System.BitConverter.ToInt32(bytes, 0);
+
+                byte[] msgBytes = new byte[length];
+                stdin.Read(msgBytes, 0, length);
+
+                string decodeMsg = Microsoft.JScript.GlobalObject.decodeURI(System.Text.Encoding.UTF8.GetString(msgBytes));
+                return decodeMsg;
+            }
+        }
+
+        static void WriteStandardStreamOut(string msg)
+        {
+            int length = msg.Length;
+            byte[] lenBytes = System.BitConverter.GetBytes(length);
+            byte[] msgBytes = System.Text.Encoding.UTF8.GetBytes(msg);
+            byte[] wrapBytes = new byte[4 + length];
+            Array.Copy(lenBytes, 0, wrapBytes, 0, 4);
+            Array.Copy(msgBytes, 0, wrapBytes, 4, length);
+
+            using (Stream stdout = Console.OpenStandardOutput())
+            {
+                stdout.Write(wrapBytes, 0, wrapBytes.Length);
+            }
+        }
+    }
+}
+{% endhighlight %} 
+{% endhide %}
+
 
 
  [1]: http://chrome.liuyixi.com/getstarted.html。
