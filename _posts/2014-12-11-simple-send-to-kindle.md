@@ -26,7 +26,7 @@ alias: [/2014/12/11/]
 1、用mvn assembly打包，打包后目录如下：
 
 <a class="post-image" href="/assets/images/posts/112049477124106.png">
-<img itemprop="image" data-src="/assets/images/posts/112049477124106.png" src="/assets/js/unveil/loader.gif" alt="" />
+<img itemprop="image" data-src="/assets/images/posts/112049477124106.png" src="/assets/js/unveil/loader.gif" alt="112049477124106.png" />
 </a>
 
 2、工具可以放到任何地方，然后执行setup.bat这个脚本。
@@ -34,20 +34,20 @@ alias: [/2014/12/11/]
 3、安装Chrome扩展。在Chrome里输入chrome://extension就可以进入扩展管理：点加载正在开发的扩展程序，选择ext下的Chrome目录就可以以开发者模式加载扩展程序了，可以看到每个扩展都有一个唯一标识ID，这个后面配置会用到。
 
 <a class="post-image" href="/assets/images/posts/112109106961572.png">
-<img itemprop="image" data-src="/assets/images/posts/112109106961572.png" src="/assets/js/unveil/loader.gif" alt="" />
+<img itemprop="image" data-src="/assets/images/posts/112109106961572.png" src="/assets/js/unveil/loader.gif" alt="112109106961572.png" />
 </a>
 
 加载成功就可以在浏览器地址栏右边看到这个logo了：
 
 <a class="post-image" href="/assets/images/posts/112114065251250.png">
-<img itemprop="image" data-src="/assets/images/posts/112114065251250.png" src="/assets/js/unveil/loader.gif" alt="" />
+<img itemprop="image" data-src="/assets/images/posts/112114065251250.png" src="/assets/js/unveil/loader.gif" alt="112114065251250.png" />
 </a>
 
 4、工具已经安装成功了下面进行一些简单配置就可以了：
 1)打开SimpleSendToKindle.json这个文件：将allowed_origins里面的内容修改为上面Chrome扩展的ID。
 
 <a class="post-image" href="/assets/images/posts/112118103687744.png">
-<img itemprop="image" data-src="/assets/images/posts/112118103687744.png" src="/assets/js/unveil/loader.gif" alt="" />
+<img itemprop="image" data-src="/assets/images/posts/112118103687744.png" src="/assets/js/unveil/loader.gif" alt="112118103687744.png" />
 </a>
 
 2)sstk.properties里面是一些工具的通用配置：
@@ -77,23 +77,23 @@ sstk.debug.sendMail = false
 主要配置的就是邮箱这块，mail.to配置是你的Kindle邮箱，mail.from是用来发送的邮箱，我这里用的是126，其他邮箱也都支持smtp，有Kindle的同学都知道要想Kindle收到邮件发送的内容必须将发送油箱添加到Amazon认可的邮箱列表中。
 
 <a class="post-image" href="/assets/images/posts/112126370562006.png">
-<img itemprop="image" data-src="/assets/images/posts/112126370562006.png" src="/assets/js/unveil/loader.gif" alt="" />
+<img itemprop="image" data-src="/assets/images/posts/112126370562006.png" src="/assets/js/unveil/loader.gif" alt="112126370562006.png" />
 </a>
 
 都配置好后看到你想要推送的页面，只要轻轻点击下就Ok了。
 
 <a class="post-image" href="/assets/images/posts/112131018686575.png">
-<img itemprop="image" data-src="/assets/images/posts/112131018686575.png" src="/assets/js/unveil/loader.gif" alt="" />
+<img itemprop="image" data-src="/assets/images/posts/112131018686575.png" src="/assets/js/unveil/loader.gif" alt="112131018686575.png" />
 </a>
 
 稍等片刻，查看你的Kindle，效果如下：
 
 <a class="post-image" href="/assets/images/posts/112339164781856.png">
-<img itemprop="image" data-src="/assets/images/posts/112339164781856.png" src="/assets/js/unveil/loader.gif" alt="" />
+<img itemprop="image" data-src="/assets/images/posts/112339164781856.png" src="/assets/js/unveil/loader.gif" alt="112339164781856.png" />
 </a>
 
 <a class="post-image" href="/assets/images/posts/112339402123972.png">
-<img itemprop="image" data-src="/assets/images/posts/112339402123972.png" src="/assets/js/unveil/loader.gif" alt="" />
+<img itemprop="image" data-src="/assets/images/posts/112339402123972.png" src="/assets/js/unveil/loader.gif" alt="112339402123972.png" />
 </a>
 
 ## 遇到的一些问题
