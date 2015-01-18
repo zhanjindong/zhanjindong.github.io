@@ -272,8 +272,6 @@ namespace Startup
 ### Chrome扩展获取当前页面的url
 园子里那个例子里是在content_script.js里用document.URL，但是我发现这有个问题，每次必须重新加载页面，不然这个值好像全局就一个。发现用chrome.tabs.getSelected这个事件监听更好些：
 
-<a class="show-hidden">{{ site.translations.show }}</a> 
-{% hide %} 
 {% highlight javascript %} 
 chrome.tabs.getSelected(null,function(tab) {
     var port = null;
@@ -297,7 +295,6 @@ chrome.tabs.getSelected(null,function(tab) {
 
 popup.js
 {% endhighlight %} 
-{% endhide %}
 
 ### 图片解析
 其实右键将网页另存为为html后就能利用kindlegen生成mobi文件了，或者利用Amazon的邮箱服务直接将html文件发送给Kindle，也能自动转换成mobi。但是之所以要写这个工具的原因就是kindlegen也好，kindle邮箱服务也好都不会去主动下载页面里的图片，kindlegen需要你将页面里图片或其他资源的地址转换成相对路径，然后将资源统一放在一个文件家里。
@@ -323,8 +320,6 @@ images/mem/figure9.png    →  http://www.test.com/dir1/dir2/images/mem/figure9.
 ..表示上级目录
 代码大致如下：
 
-<a class="show-hidden">{{ site.translations.show }}</a> 
-{% hide %} 
 {% highlight java %} 
 private String processRelativeUrl(String url) {
         if (url.startsWith("http://")) {
@@ -372,7 +367,6 @@ private String processRelativeUrl(String url) {
 
 popup.js
 {% endhighlight %} 
-{% endhide %}
 
 本来是打算也处理CSS的，结果发现CSS反而会导致生成的mobi格式错乱就算了。
 
