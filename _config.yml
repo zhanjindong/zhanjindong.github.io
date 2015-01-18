@@ -157,8 +157,8 @@ translations:
   # navigation
   archives: 'Archives'
   articles: 'Articles'
-  notes: 'Notes'
   categories: 'Categories'
+  links: 'Links'
   tags: 'Tags'
   search: 'Search'
 
