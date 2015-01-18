@@ -20,6 +20,30 @@ utilities: fancybox, unveil
 ### 通过命令行
 {: #using-cli}
 
+<a class="post-image" href="/assets/images/posts/112339402123972.png">
+<img itemprop="image" data-src="/assets/images/posts/112339402123972.png" src="/assets/js/unveil/loader.gif" alt="" />
+</a>
+
+<a class="post-image" href="/assets/images/posts/112131018686575.png">
+<img itemprop="image" data-src="/assets/images/posts/112131018686575.png" src="/assets/js/unveil/loader.gif" alt="112131018686575.png" />
+</a>
+
+<a class="post-image" href="/assets/images/posts/112131018686575.png">
+<img itemprop="image" data-src="/assets/images/posts/112131018686575.png" src="/assets/js/unveil/loader.gif" alt="112131018686575.png" />
+</a>
+
+<a class="post-image" href="/assets/images/posts/112339402123972.png">
+<img itemprop="image" data-src="/assets/images/posts/112339402123972.png" src="/assets/js/unveil/loader.gif" alt="" />
+</a>
+
+<a class="post-image" href="/assets/images/posts/112131018686575.png">
+<img itemprop="image" data-src="/assets/images/posts/112131018686575.png" src="/assets/js/unveil/loader.gif" alt="112131018686575.png" />
+</a>
+
+<a class="post-image" href="/assets/images/posts/112131018686575.png">
+<img itemprop="image" data-src="/assets/images/posts/112131018686575.png" src="/assets/js/unveil/loader.gif" alt="112131018686575.png" />
+</a>
+
 在 Gsettings 里, `touchpad` 下面有一个子键叫做 `left-handed`，是用来控制触摸板的左右键位属性的，该子键是一个 string 类型，默认键值为 "mouse"，但可以设置成 "left" 或 "right"。
 
 通过终端，输入以下命令来将其设成左利手键位：
