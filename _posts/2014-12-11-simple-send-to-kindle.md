@@ -110,12 +110,18 @@ sstk.debug.sendMail = false
 工具虽然简单，但是从思路到成型，过程也遇到了一些问题，这里跟大家分享下，有兴趣的同学可以接着往下看。
 
 ### 实现思路
+{: #ideas-of-implementation}
+
 有了想法后首先要想的就是实现思路，一开始想用JavaScript写，最后只要安装一个Chrome扩展程序就可以了，这样肯定是Simple的，但是最后还是放弃这个想法，一来我对JS基本不会，二来写这个工具的目的是为了满足自己的需求，怎么快怎么来，什么技术熟悉就用什么，所以最后还是决定用Chrome扩展和Java程序通信这种方式。但这过程发现了一些很有用的工具，我在最后会推荐给大家。
 
 ### Chrome扩展开发
+{: #chreome-extension-development}
+
 我一直用的都是chrome，所以想到了开发Chrome下的插件（Chrome下叫Extension扩展）。那首先要解决的就是如何开发Chrome插件？开发chrome扩展很简单，官方有一个入门例子非常简单，[一看就懂][1]。 这里推荐园子里的一篇文章：[Chrome插件（Extensions）开发攻略][2]。
 
 ### Chrome扩展和本地程序通信
+{: #native-messaging}
+
 官方术语叫做`Native Messaging`，具体技术细节这里不啰嗦了，有兴趣的同学可以网上搜下，这里指简单介绍下。chrome扩展在Windows下是通过HKEY_CURRENT_USER\Software\Google\Chrome\NativeMessagingHosts\这个注册表下面的内容和一个.json的清单文件来找到你的`Native App`的。上面的`setup.bat`就是用来写入注册表的，`SimpleSendToKind.json`就是清单文件：
 
 {% highlight bat %}
@@ -269,6 +275,8 @@ namespace Startup
 {% endhighlight %} 
 
 ### Chrome扩展获取当前页面的url
+{: #get-current-pageurl-in-extension}
+
 园子里那个例子里是在content_script.js里用document.URL，但是我发现这有个问题，每次必须重新加载页面，不然这个值好像全局就一个。发现用chrome.tabs.getSelected这个事件监听更好些：
 
 {% highlight javascript %} 
@@ -296,6 +304,8 @@ popup.js
 {% endhighlight %} 
 
 ### 图片解析
+{: #parse-image-urls}
+
 其实右键将网页另存为为html后就能利用kindlegen生成mobi文件了，或者利用Amazon的邮箱服务直接将html文件发送给Kindle，也能自动转换成mobi。但是之所以要写这个工具的原因就是kindlegen也好，kindle邮箱服务也好都不会去主动下载页面里的图片，kindlegen需要你将页面里图片或其他资源的地址转换成相对路径，然后将资源统一放在一个文件家里。
 
 <a class="post-image" href="/assets/images/posts/112227135716583.png">
@@ -370,6 +380,8 @@ popup.js
 本来是打算也处理CSS的，结果发现CSS反而会导致生成的mobi格式错乱就算了。
 
 ### 页面乱码
+{: #page-encoding-garbled }
+
 有的网页的meta元素并不规范会导致kindlegen生成的mobi文件乱码，比如：
 
 	<meta charset="UTF-8">
@@ -379,6 +391,8 @@ popup.js
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
 ### 一些网站防止恶意抓取的问题
+{: #page-crawl-questions }
+
 有些网站的页面为了防止网络爬虫恶意抓取内容会对HTTP请求的User-Agent进行简单验证，这种情况简单模拟下浏览器的UA就可以绕过了，这也说明了恶意的抓取确实很难杜绝，前几天园子里好像还有人提到这个。这里有个疑问：到底什么样的行为算恶意抓取，就我本人来说肯定不会有任何恶意。
 
 <a class="post-image" href="/assets/images/posts/112244162757158.png">
@@ -386,6 +400,7 @@ popup.js
 </a>
 
 ## 存在的问题
+{: #knowning-issues }
 
 写的比较匆忙，还存在很多问题：
 
@@ -408,6 +423,8 @@ popup.js
 另外才关注开源没多久，Github上提交的代码质量有待提高。
 
 ## 一些资源
+{: #some-resources }
+
 前面提到写这个工具的过程中其实发掘了一些很不错的工具和服务，这里推荐给大家：
 . [KDP(Amazon Kindle Direct Publishing)][3]:亚马逊提供的一个服务。
 . [HTML-to-MOBI][4]:一个在线的将网页转换成mobi文件的服务，但是好像图片处理也有问题。
@@ -418,6 +435,8 @@ popup.js
 . [RssToMobiService][9]:Github上一个抓取RSS生成mobi文件发送到Kindle的工具，很不错的。
 
 ## 写在最后
+{: #written-in-end-of }
+
 今天写完才发现，原来Amazon官方就有一个插件叫Send to Kindle，而且支持各种浏览器，很好很强大，需要的同学直接用官方的吧，这么晚码字很辛苦，没有功劳也有苦劳，如果觉得不错给个推荐吧~
 
 写这个工具最大的收获就是：有想法就去做，just do it!
