@@ -102,7 +102,7 @@ static ExecutorService service = Executors.newFixedThreadPool(10);
   [1]: http://www.cnblogs.com/jesse2013/p/3560999.html#
   [2]: http://www.cnblogs.com/jesse2013/p/3560999.html#parameters
   [3]: http://jindong.io/assets/images/posts/c-result.png
-  [4]: http://jindong.io/assets/images/posts/Java-result.png
+  [4]: /assets/images/posts/Java-result.png
   [5]: http://referencesource.microsoft.com/
   [6]: http://jindong.io/assets/images/posts/state-machine.png
   [7]: http://zhanjindong.info/2013/09/01/%E5%8F%AF%E6%83%9Cjava%E4%B8%AD%E6%B2%A1%E6%9C%89yield-return/
