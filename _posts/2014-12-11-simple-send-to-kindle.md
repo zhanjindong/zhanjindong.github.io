@@ -5,7 +5,7 @@ description: "【开源一个小工具】一键将网页内容推送到Kindle"
 categories: [articles]
 tags: [Kindle]
 alias: [/2014/12/11/]
-utilities: highlight, show-hidden
+utilities: fancybox, unveil, highlight
 ---
 
 最近工作上稍微闲点，这一周利用下班时间写了一个小工具，其实功能挺简单但也小折腾了会。
@@ -158,9 +158,6 @@ arg 1:chrome-extension://oojaanpmaapemaihjbebgojmblljbhhh/
 
 所以我就想Java能不能直接从Windows句柄读数据，因为Java确实提供了一个FileDescriptor类，但折腾了半天发现原生的Java并不支持这么干。最后没办法下，想出了非常丑陋的解决办法，利用C#来做下中转，所以才多了个startup.exe，C#代码写的很顺利，这也让我对Java是累感不爱啊。
 
-<a class="show-hidden">{{ site.translations.show }}</a> 
-
-{% hide %}
 {% highlight c# %} 
 using System;
 using System.Collections.Generic;
@@ -270,7 +267,6 @@ namespace Startup
     }
 }
 {% endhighlight %} 
-{% endhide %}
 
 ### Chrome扩展获取当前页面的url
 园子里那个例子里是在content_script.js里用document.URL，但是我发现这有个问题，每次必须重新加载页面，不然这个值好像全局就一个。发现用chrome.tabs.getSelected这个事件监听更好些：
