@@ -11,7 +11,9 @@ utilities: highlight
 **没图，不分析API**
 
 Java中IO API的发展：
+
 Socket -> SocketChannel -> AsynchronousSocketChannel
+
 ServerSocket -> ServerSocketChannel -> AsynchronousServerSocketChannel
 
 同步/阻塞 -> 同步/非阻塞(多路复用) -> 异步
@@ -19,7 +21,9 @@ ServerSocket -> ServerSocketChannel -> AsynchronousServerSocketChannel
 想简单聊下多路复用。多路复用需要配合Reactor模式，前者解决技术上的问题，后者解决软件工程的问题。
 
 技术上的问题，是将IO操作中等待和非等待的部分分开处理。我们都知道IO操作分为两个部分：
+
 1、等待数据就绪
+
 2、处理数据
 
 众所周知的几种IO模型（阻塞、非阻塞、多路复用、信号驱动、异步）就是区别于这两个阶段，当需要处理很多连接的时候（高并发的情况），容易想到的是使用多线程技术，比如最简单的`One-connection-Per-thread`模式，但是因为等待数据不可避免，造成的结果是线程不停的休眠-唤醒的切换，导致CPU不堪重负。
