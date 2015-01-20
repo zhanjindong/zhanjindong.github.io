@@ -77,7 +77,7 @@ utilities: fancybox, unveil
 
 那么现在有另外一个问题，那么正常情况下为什么每秒100次的请求不会导致线程数暴增呢？也就是说线程暴增到`3000`的瓶颈到底在哪？这个我上面的结论其实也不是很准确。
 
-	真正决定`Tomcat`最大可能达到的线程数是maxConnections这个参数和并发数，当并发数超过这个参数则请求会排队，这时响应的快慢就看你的程序性能了。
+	真正决定Tomcat最大可能达到的线程数是maxConnections这个参数和并发数，当并发数超过这个参数则请求会排队，这时响应的快慢就看你的程序性能了。
 
 这里没说清楚的是并发的概念，不管什么并发肯定是有一个时间单位的（一般是1s），准确的来讲应该是当时Tomcat处理一个请求的时间内并发数，比如当时Tomcat处理某一个请求花费了1s，那么如果这1s过来的请求数达到了3000，那么Tomcat的线程数就会为3000，maxConnections只是Tomcat做的一个限制。
 
@@ -101,6 +101,6 @@ utilities: fancybox, unveil
 
 
 
- [1]: http://www.cnblogs.com/zhanjindong/p/concurrent-and-tomcat-threads.html
+ [1]: http://www.cnblogs.com/zhanjindong/p/concurrent-and-tomcat-threads-updated.html
  [2]: http://tomcat.apache.org/tomcat-7.0-doc/config/executor.html
 
