@@ -21,6 +21,10 @@ utilities: fancybox, unveil
 	`Tomcat`不会主动对线程池进行收缩，除非确定没有任何请求的时候，Tomcat才会将线程池收缩到`minSpareThreads`设置的大小；
 	`Tomcat6`之前的版本有一个`maxSpareThreads`参数，但是在7中已经移除了，所以只要前面哪怕只有一个请求，Tomcat也不会释放多于空闲的线程。
 
+
+## 线程数、TPS、maxIdleTime之间的关系
+{: #relationship-between-thread-count-tps-maxIdleTime}
+
 其实**Tomcat会停止长时间闲置的线程。**Tomcat还有一个参数叫[`maxIdleTime`][2]：
 
 > (int) The number of milliseconds before an idle thread shutsdown, unless the number of active threads are less or equal to minSpareThreads. Default value is 60000(1 minute)
@@ -49,13 +53,9 @@ utilities: fancybox, unveil
 </tr>
 
 
-## 线程数、TPS、maxIdleTime之间的关系
-{: #formula}
+依次类推，上表中Thread Count这一列是一个大约数，上下相差几个，但基本符合这样一个规则：
 
-
-依次类推，当然Thread Count这一列是一个大约数，上下相差几个，但基本符合这样一个规则：
-
-> Thread Count = (TPS * maxIdleTime)/1000
+	Thread Count = (TPS * maxIdleTime)/1000
 
 当然这个`Thread Count`不会小于`minSpareThreads`，这个跟之前的结论还是一样的。我现在大胆猜测下（回头看源码验证下，或者哪位同学知道告诉我下，谢谢）：
 
