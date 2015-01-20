@@ -18,8 +18,8 @@ utilities: fancybox, unveil
 
 那篇文章有问题的结论是：
 
-. `Tomcat`不会主动对线程池进行收缩，除非确定没有任何请求的时候，Tomcat才会将线程池收缩到`minSpareThreads`设置的大小；
-. `Tomcat6`之前的版本有一个`maxSpareThreads`参数，但是在7中已经移除了，所以只要前面哪怕只有一个请求，Tomcat也不会释放多于空闲的线程。
+	`Tomcat`不会主动对线程池进行收缩，除非确定没有任何请求的时候，Tomcat才会将线程池收缩到`minSpareThreads`设置的大小；
+	`Tomcat6`之前的版本有一个`maxSpareThreads`参数，但是在7中已经移除了，所以只要前面哪怕只有一个请求，Tomcat也不会释放多于空闲的线程。
 
 其实**Tomcat会停止长时间闲置的线程。**Tomcat还有一个参数叫[`maxIdleTime`][2]：
 
@@ -65,26 +65,26 @@ utilities: fancybox, unveil
 <img itemprop="image" data-src="/assets/images/posts/201812241101914.png" src="/assets/js/unveil/loader.gif" alt="201812241101914.png" />
 </a>
 
-假设首先线程池在高峰时期暴涨到1000，高峰过后Tomcat处理一次请求需要1s（从Jmeter看TPS大约就为1），那么在maxIdleTime默认的60s内会用到线程池中60个线程，那么最后理论上线程池会收缩到60（假设minSpareThreads大于60）。**另外：这个跟用不用Keep-Alive没关系（之前测试结论是因为用了Keep-Alive导致程序性能下降，TPS降低了很多导致的）**
+假设首先线程池在高峰时期暴涨到1000，高峰过后`Tomcat`处理一次请求需要1s（从Jmeter看TPS大约就为1），那么在`maxIdleTime`默认的60s内会用到线程池中60个线程，那么最后理论上线程池会收缩到60（假设minSpareThreads大于60）。**另外：这个跟用不用Keep-Alive没关系（之前测试结论是因为用了Keep-Alive导致程序性能下降，TPS降低了很多导致的）**
 
 这就是为什么我之前的测试中、还有我们生产环境中线程数只增不减的原因，因为就算峰值过后我们的业务每秒请求次数仍然有100多，100*60=6000，也就是3000个线程每个线程在被回收之前肯定会被重用。
 
 ## 线程池为什么会满
 {: #why-thread-pool-surge}
 
-那么现在有另外一个问题，那么正常情况下为什么每秒100次的请求不会导致线程数暴增呢？也就是说线程暴增到3000的瓶颈到底在哪？这个我上面的结论其实也不是很准确。
+那么现在有另外一个问题，那么正常情况下为什么每秒100次的请求不会导致线程数暴增呢？也就是说线程暴增到`3000`的瓶颈到底在哪？这个我上面的结论其实也不是很准确。
 
-. 真正决定Tomcat最大可能达到的线程数是maxConnections这个参数和并发数，当并发数超过这个参数则请求会排队，这时响应的快慢就看你的程序性能了。
+	真正决定`Tomcat`最大可能达到的线程数是`maxConnections`这个参数和并发数，当并发数超过这个参数则请求会排队，这时响应的快慢就看你的程序性能了。
 
 这里没说清楚的是并发的概念，不管什么并发肯定是有一个时间单位的（一般是1s），准确的来讲应该是当时Tomcat处理一个请求的时间内并发数，比如当时Tomcat处理某一个请求花费了1s，那么如果这1s过来的请求数达到了3000，那么Tomcat的线程数就会为3000，maxConnections只是Tomcat做的一个限制。
 
 欢迎斧正！
 
-补充
+## 补充
 {: #jmeter-frequence}
 
 
-使用Jmeter可以很容易的控制请求的频率。
+使用`Jmeter`可以很容易的控制请求的频率。
 
 <a class="post-image" href="/assets/images/posts/201844220947370.png">
 <img itemprop="image" data-src="/assets/images/posts/201844220947370.png" src="/assets/js/unveil/loader.gif" alt="201844220947370.png" />
