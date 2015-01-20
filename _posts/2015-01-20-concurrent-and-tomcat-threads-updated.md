@@ -18,8 +18,8 @@ utilities: fancybox, unveil, highlight
 
 那篇文章有问题的结论是：
 
-	`Tomcat`不会主动对线程池进行收缩，除非确定没有任何请求的时候，Tomcat才会将线程池收缩到`minSpareThreads`设置的大小；
-	`Tomcat6`之前的版本有一个`maxSpareThreads`参数，但是在7中已经移除了，所以只要前面哪怕只有一个请求，Tomcat也不会释放多于空闲的线程。
+- `Tomcat`不会主动对线程池进行收缩，除非确定没有任何请求的时候，Tomcat才会将线程池收缩到`minSpareThreads`设置的大小；
+- `Tomcat6`之前的版本有一个`maxSpareThreads`参数，但是在7中已经移除了，所以只要前面哪怕只有一个请求，Tomcat也不会释放多于空闲的线程。
 
 
 ## 线程数、TPS、maxIdleTime之间的关系
@@ -31,27 +31,28 @@ utilities: fancybox, unveil, highlight
 
 其实从这个参数解释也能看出来`Tomcat`会停止闲置了超过一定时间的线程的，这个时间就是`maxIdleTime`。但我之前的测试中确实没有发现线程释放的现象，这是为什么呢？我发现除了这个参数线程池线程是否释放？释放多少？还跟当前`Tomcat`每秒处理的请求数（从`Jmeter`或`LoadRunner`来看可以理解为`TPS`）有关系。通过下表可以清晰的看出来`线程数`，`TP`S和`maxIdleTime`之间的关系：
 
-
-<tr>
-	<th>TPS</th>
-	<th>maxIdleTime(ms)</th>
-	<th>Thread Count</th>
-</tr>
-<tr>
-	<th>10</th>
-	<th>60,000(ms)</th>
-	<th>600</th>
-</tr>
-<tr>
-	<th>5</th>
-	<th>60,000(ms)</th>
-	<th>300</th>
-</tr>
-<tr>
-	<th>1</th>
-	<th>60,000(ms)</th>
-	<th>60</th>
-</tr>
+<table>
+	<tr>
+		<th>TPS</th>
+		<th>maxIdleTime(ms)</th>
+		<th>Thread Count</th>
+	</tr>
+	<tr>
+		<th>10</th>
+		<th>60,000(ms)</th>
+		<th>600</th>
+	</tr>
+	<tr>
+		<th>5</th>
+		<th>60,000(ms)</th>
+		<th>300</th>
+	</tr>
+	<tr>
+		<th>1</th>
+		<th>60,000(ms)</th>
+		<th>60</th>
+	</tr>
+</table>
 
 
 依次类推，上表中Thread Count这一列是一个大约数，上下相差几个，但基本符合这样一个规则：
