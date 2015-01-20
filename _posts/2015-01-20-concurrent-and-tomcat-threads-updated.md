@@ -54,6 +54,54 @@ utilities: fancybox, unveil, highlight
 	</tr>
 </table>
 
+{% datatable %}
+<tr>
+	<th>Version</th>
+	<th>Version</th>
+	<th>Comparison</th>
+</tr>
+<tr>
+	<td>Selenium 1</td>
+	<td>Selenium RC</td>
+	<td>
+	Essentially the same thing.<br />
+	Selenium 1 has never been an official name, but is commonly used in order to distinguish between versions.
+	</td>
+</tr>
+<tr>
+	<td>Selenium 2</td>
+	<td>Selenium WebDriver</td>
+	<td>
+	Essentially the same thing.<br />
+	The term "Selenium WebDriver" is now more commonly used.
+	</td>
+</tr>
+<tr>
+	<td>Selenium RC</td>
+	<td>Selenium WebDriver</td>
+	<td>
+	Selenium RC is the predecessor of Selenium WebDriver.<br />
+	It has been deprecated and now released inside Selenium WebDriver for backward compatibility.
+	</td>
+</tr>
+<tr>
+	<td>Selenium IDE</td>
+	<td>Selenium RC/WebDriver</td>
+	<td>
+	Selenium IDE is a recording tool for automating Firefox, with the ability to generate simple RC/WebDriver code.<br />
+	Selenium RC/WebDriver are frameworks to automate browsers programmatically.
+	</td>
+</tr>
+<tr>
+	<td>Selenium Grid</td>
+	<td>Selenium WebDriver</td>
+	<td>
+	Selenium Grid is a tool to execute Selenium tests in parallel on different machines.<br />
+	Selenium WebDriver is the core library to drive web browsers on a single machine.
+	</td>
+</tr>
+{% enddatatable %}
+
 
 依次类推，上表中Thread Count这一列是一个大约数，上下相差几个，但基本符合这样一个规则：
 
