@@ -31,53 +31,28 @@ utilities: fancybox, unveil
 
 其实从这个参数解释也能看出来`Tomcat`会停止闲置了超过一定时间的线程的，这个时间就是`maxIdleTime`。但我之前的测试中确实没有发现线程释放的现象，这是为什么呢？我发现除了这个参数线程池线程是否释放？释放多少？还跟当前`Tomcat`每秒处理的请求数（从`Jmeter`或`LoadRunner`来看可以理解为`TPS`）有关系。通过下表可以清晰的看出来`线程数`，`TP`S和`maxIdleTime`之间的关系：
 
-{% datatable %}
-<tr>
-	<th>Version</th>
-	<th>Version</th>
-	<th>Comparison</th>
-</tr>
-<tr>
-	<td>Selenium 1</td>
-	<td>Selenium RC</td>
-	<td>
-	Essentially the same thing.<br />
-	Selenium 1 has never been an official name, but is commonly used in order to distinguish between versions.
-	</td>
-</tr>
-<tr>
-	<td>Selenium 2</td>
-	<td>Selenium WebDriver</td>
-	<td>
-	Essentially the same thing.<br />
-	The term "Selenium WebDriver" is now more commonly used.
-	</td>
-</tr>
-<tr>
-	<td>Selenium RC</td>
-	<td>Selenium WebDriver</td>
-	<td>
-	Selenium RC is the predecessor of Selenium WebDriver.<br />
-	It has been deprecated and now released inside Selenium WebDriver for backward compatibility.
-	</td>
-</tr>
-<tr>
-	<td>Selenium IDE</td>
-	<td>Selenium RC/WebDriver</td>
-	<td>
-	Selenium IDE is a recording tool for automating Firefox, with the ability to generate simple RC/WebDriver code.<br />
-	Selenium RC/WebDriver are frameworks to automate browsers programmatically.
-	</td>
-</tr>
-<tr>
-	<td>Selenium Grid</td>
-	<td>Selenium WebDriver</td>
-	<td>
-	Selenium Grid is a tool to execute Selenium tests in parallel on different machines.<br />
-	Selenium WebDriver is the core library to drive web browsers on a single machine.
-	</td>
-</tr>
-{% enddatatable %}
+<table class="data-table">
+	<tr>
+		<th>TPS</th>
+		<th>maxIdleTime(ms)</th>
+		<th>Thread Count</th>
+	</tr>
+	<tr>
+		<td>10</td>
+		<td>60,000(ms)</td>
+		<td>600</td>
+	</tr>
+	<tr>
+		<td>5</td>
+		<td>60,000(ms)</td>
+		<td>300</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>60,000(ms)</td>
+		<td>60</td>
+	</tr>
+</table>
 
 依次类推，上表中Thread Count这一列是一个大约数，上下相差几个，但基本符合这样一个规则：
 
