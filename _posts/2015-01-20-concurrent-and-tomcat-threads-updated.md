@@ -5,7 +5,7 @@ description: "聊下并发和Tomcat线程数（错误更正）"
 categories: [articles]
 tags: [Tomcat]
 alias: [/2015/01/20/]
-utilities: fancybox, unveil, highlight
+utilities: fancybox, unveil
 ---
 
 之前在博客园写过一篇文章：[聊下并发和Tomcat线程数][1]。其中得出的结论是错误，特此更正下，如果误导了某些同学十分抱歉。原文也已同步更新了。
