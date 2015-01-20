@@ -58,7 +58,7 @@ utilities: fancybox, unveil
 
 依次类推，上表中Thread Count这一列是一个大约数，上下相差几个，但基本符合这样一个规则：
 
-	Thread Count = (TPS * maxIdleTime)/1000
+	Thread Count = max((TPS * maxIdleTime)/1000,minSpareThreads)
 
 当然这个`Thread Count`不会小于`minSpareThreads`，这个跟之前的结论还是一样的。我现在大胆猜测下（回头看源码验证下，或者哪位同学知道告诉我下，谢谢）：
 
@@ -87,7 +87,7 @@ utilities: fancybox, unveil
 {: #jmeter-frequence}
 
 
-使用`Jmeter`可以很容易的控制请求的频率。
+使用`Jmeter`可以很容易控制请求的频率。
 
 <a class="post-image" href="/assets/images/posts/201844220947370.png">
 <img itemprop="image" data-src="/assets/images/posts/201844220947370.png" src="/assets/js/unveil/loader.gif" alt="201844220947370.png" />
