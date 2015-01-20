@@ -40,17 +40,17 @@ utilities: fancybox, unveil
 	</tr>
 	<tr>
 		<td>10</td>
-		<td>60,000(ms)</td>
+		<td>60,000</td>
 		<td>600</td>
 	</tr>
 	<tr>
 		<td>5</td>
-		<td>60,000(ms)</td>
+		<td>60,000</td>
 		<td>300</td>
 	</tr>
 	<tr>
 		<td>1</td>
-		<td>60,000(ms)</td>
+		<td>60,000</td>
 		<td>60</td>
 	</tr>
 </table>
