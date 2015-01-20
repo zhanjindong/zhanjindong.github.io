@@ -5,17 +5,16 @@ description: "聊下并发和Tomcat线程数（错误更正）"
 categories: [articles]
 tags: [Tomcat]
 alias: [/2015/01/20/]
-utilities: fancybox, unveil, highlight
+utilities: fancybox, unveil
 ---
+
+之前在博客园写过一篇文章：[聊下并发和Tomcat线程数][1]。其中得出的结论是错误，特此更正下，如果误导了某些同学十分抱歉。原文也已同步更新了。
 
 * Kramdown table of contents
 {:toc .toc}
 
-
-之前在博客园写过一篇文章：[聊下并发和Tomcat线程数][1]。其中得出的结论是错误，特此更正下，如果误导了某些同学十分抱歉。原文也已同步更新了。
-
 ## 错误的结论
-{: wrong-conclusions}
+{: #wrong-conclusions}
 
 那篇文章有问题的结论是：
 
@@ -51,7 +50,7 @@ utilities: fancybox, unveil, highlight
 
 
 ## 线程数、TPS、maxIdleTime之间的关系
-{: formula}
+{: #formula}
 
 
 依次类推，当然Thread Count这一列是一个大约数，上下相差几个，但基本符合这样一个规则：
@@ -71,7 +70,7 @@ utilities: fancybox, unveil, highlight
 这就是为什么我之前的测试中、还有我们生产环境中线程数只增不减的原因，因为就算峰值过后我们的业务每秒请求次数仍然有100多，100*60=6000，也就是3000个线程每个线程在被回收之前肯定会被重用。
 
 ## 线程池为什么会满
-{: why-thread-pool-surge}
+{: #why-thread-pool-surge}
 
 那么现在有另外一个问题，那么正常情况下为什么每秒100次的请求不会导致线程数暴增呢？也就是说线程暴增到3000的瓶颈到底在哪？这个我上面的结论其实也不是很准确。
 
@@ -82,7 +81,7 @@ utilities: fancybox, unveil, highlight
 欢迎斧正！
 
 补充
-{: jmeter-frequence}
+{: #jmeter-frequence}
 
 
 使用Jmeter可以很容易的控制请求的频率。
