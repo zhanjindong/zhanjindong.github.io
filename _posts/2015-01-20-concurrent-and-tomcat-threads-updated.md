@@ -5,7 +5,7 @@ description: "聊下并发和Tomcat线程数（错误更正）"
 categories: [articles]
 tags: [Tomcat]
 alias: [/2015/01/20/]
-utilities: fancybox, unveil
+utilities: fancybox, unveil, highlight
 ---
 
 之前在博客园写过一篇文章：[聊下并发和Tomcat线程数][1]。其中得出的结论是错误，特此更正下，如果误导了某些同学十分抱歉。原文也已同步更新了。
@@ -31,7 +31,7 @@ utilities: fancybox, unveil
 
 其实从这个参数解释也能看出来`Tomcat`会停止闲置了超过一定时间的线程的，这个时间就是`maxIdleTime`。但我之前的测试中确实没有发现线程释放的现象，这是为什么呢？我发现除了这个参数线程池线程是否释放？释放多少？还跟当前`Tomcat`每秒处理的请求数（从`Jmeter`或`LoadRunner`来看可以理解为`TPS`）有关系。通过下表可以清晰的看出来`线程数`，`TP`S和`maxIdleTime`之间的关系：
 
-{% datatable %}
+
 <tr>
 	<th>TPS</th>
 	<th>maxIdleTime(ms)</th>
@@ -52,7 +52,7 @@ utilities: fancybox, unveil
 	<th>60,000(ms)</th>
 	<th>60</th>
 </tr>
-{% enddatatable %}
+
 
 依次类推，上表中Thread Count这一列是一个大约数，上下相差几个，但基本符合这样一个规则：
 
