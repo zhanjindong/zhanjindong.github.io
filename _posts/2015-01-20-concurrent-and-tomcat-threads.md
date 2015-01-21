@@ -58,7 +58,7 @@ utilities: fancybox, unveil
 
 依次类推，上表中Thread Count这一列是一个大约数，上下相差几个，但基本符合这样一个规则：
 
-	Thread Count = max((TPS * maxIdleTime)/1000,minSpareThreads)
+	Thread Count = min(max((TPS * maxIdleTime)/1000,minSpareThreads),maxThreads)
 
 当然这个`Thread Count`不会小于`minSpareThreads`，这个跟之前的结论还是一样的。我现在大胆猜测下（回头看源码验证下，或者哪位同学知道告诉我下，谢谢）：
 
@@ -79,7 +79,7 @@ utilities: fancybox, unveil
 
 	真正决定Tomcat最大可能达到的线程数是maxConnections这个参数和并发数，当并发数超过这个参数则请求会排队，这时响应的快慢就看你的程序性能了。
 
-这里没说清楚的是并发的概念，不管什么并发肯定是有一个时间单位的（一般是1s），准确的来讲应该是当时Tomcat处理一个请求的时间内并发数，比如当时Tomcat处理某一个请求花费了1s，那么如果这1s过来的请求数达到了3000，那么Tomcat的线程数就会为3000，maxConnections只是Tomcat做的一个限制。
+这里没说清楚的是并发的概念，不管什么并发肯定是有一个时间单位的（一般是1s），准确的来讲应该是当时Tomcat处理一个请求的时间内并发数，比如当时Tomcat处理一个请求花费了1s，那么如果这1s过来的请求数达到了3000，那么Tomcat的线程数就会为3000，也就是说瓶颈在于当时Tomcat处理请求的速度。maxConnections只是Tomcat做的一个限制。
 
 欢迎斧正！
 
