@@ -68,7 +68,7 @@ utilities: fancybox, unveil
 <img itemprop="image" data-src="/assets/images/posts/201812241101914.png" src="/assets/js/unveil/loader.gif" alt="201812241101914.png" />
 </a>
 
-假设首先线程池在高峰时期暴涨到1000，高峰过后`Tomcat`处理一次请求需要1s（从Jmeter看TPS大约就为1），那么在`maxIdleTime`默认的60s内会用到线程池中60个线程，那么最后理论上线程池会收缩到60（假设minSpareThreads大于60）。**另外：这个跟用不用Keep-Alive没关系（之前测试结论是因为用了Keep-Alive导致程序性能下降，TPS降低了很多导致的）**
+假设首先线程池在高峰时期暴涨到1000，高峰过后`Tomcat`处理一次请求需要1s（从Jmeter看TPS大约就为1），那么在`maxIdleTime`默认的60s内会用到线程池中60个线程，那么最后理论上线程池会收缩到60（假设minSpareThreads大于60）。**另外：这个跟用不用Keep-Alive没关系（之前测试结论是因为没用Keep-Alive导致程序性能下降，TPS降低了很多导致的）**
 
 这就是为什么我之前的测试中、还有我们生产环境中线程数只增不减的原因，因为就算峰值过后我们的业务每秒请求次数仍然有100以上，100*60=6000，也就是3000个线程每个线程在被回收之前肯定会被重用。
 
