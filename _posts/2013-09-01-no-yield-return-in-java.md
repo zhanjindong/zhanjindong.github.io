@@ -10,3 +10,11 @@ utilities: fancybox, unveil, highlight
 
 项目中一个消息推送需求，推送的用户数几百万，用户清单很简单就是一个txt文件，是由hadoop计算出来的。格式大概如下：
 
+{% highlight %}
+uid　　caller
+123456　　12345678901
+789101　　12345678901
+……
+{% endhighlight %}
+
+
