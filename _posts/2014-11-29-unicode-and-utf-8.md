@@ -13,13 +13,13 @@ utilities: fancybox, unveil
 * Kramdown table of contents
 {:toc .toc}
 
-## Unicode字符集
+## Unicode字符集 
 {: #unicode-charset}
 
 `Unicode`的出现是因为ASCII等其他编码码不够用了，比如`ASCII`是英语为母语的人发明的，只要一个字节8位就能够表示26个英文字母了，但是当跨区域进行信息交流的时候，尤其是`Internet`的出现，除了“A”,“B”,“C"，还有“你”，“我”，“他”需要表示，一个字节8位显然不够用，因此`Unicode`就被发明出来，`Unicode`的最大码位`0x10FFFF`，有21位。中文对应的Unicode编码见[这里][1]。
 
-##　UTF-8字符编码
-{: #encoding}
+## UTF-8字符编码
+{: #coding}
 
 Unicode只是给这世界上每个字符规定了一个统一的二进制编号，并没有规定程序该如何去存储和解析。
 
