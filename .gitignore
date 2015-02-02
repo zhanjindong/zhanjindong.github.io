@@ -3,6 +3,7 @@ assets/css/.sass-cache/*
 .sass-cache/*
 Thumbs.db
 .DS_Store
+_post/_site/*
 
 !.gitkeep
 
