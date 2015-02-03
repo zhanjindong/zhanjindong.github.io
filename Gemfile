@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'jekyll', '>=2.5.0'
+gem 'jekyll', '2.4.0'
 gem 'kramdown'
 gem 'compass'
 gem 'cucumber', '1.3.14'
