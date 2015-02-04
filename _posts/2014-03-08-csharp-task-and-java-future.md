@@ -103,7 +103,7 @@ static ExecutorService service = Executors.newFixedThreadPool(10);
 <img itemprop="image" data-src="/assets/images/posts/state-machine.png" src="/assets/js/unveil/loader.gif" alt="state-machine.png" />
 </a>
 
-咦？状态机让我立马想到了[yield return][7]，怪不得我觉得`await`和`yield return`有点神似呢。这也许就是我更喜欢C#的原因：设计上的**一致性**。
+咦？状态机让我立马想到了[yield return][6]，怪不得我觉得`await`和`yield return`有点神似呢。这也许就是我更喜欢C#的原因：设计上的**一致性**。
 
 简单写点，有时间还是想深入深入啊。
 
@@ -111,4 +111,4 @@ static ExecutorService service = Executors.newFixedThreadPool(10);
   [1]: http://www.cnblogs.com/jesse2013/p/3560999.html#
   [2]: http://www.cnblogs.com/jesse2013/p/3560999.html#parameters
   [5]: http://referencesource.microsoft.com/
-  [7]: http://zhanjindong.info/2013/09/01/%E5%8F%AF%E6%83%9Cjava%E4%B8%AD%E6%B2%A1%E6%9C%89yield-return/
+  [6]: http://jindong.io/2013/09/01/no-yield-return-in-java/
