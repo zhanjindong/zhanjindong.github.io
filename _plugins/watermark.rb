@@ -7,7 +7,7 @@ module Jekyll
     priority :low
 
     def generate(site)
-      Dir.glob('assets/images/original/*').each do |file|
+      Dir.glob('assets/images/original/**/*').each do |file|
         path = destination_path(file)
         if (File.file?(file))
           watermark_image(site, file, path)
