@@ -36,7 +36,7 @@ module Jekyll
         return
       end
       image = MiniMagick::Image.open(file)
-      result = image.composite(MiniMagick::Image.open('img/watermark-large.png')) do |c|
+      result = image.composite(MiniMagick::Image.open('assets/images/watermark-large.png')) do |c|
         c.gravity "southeast"
       end
       result.write new_file
@@ -64,7 +64,7 @@ module Jekyll
       hoffset = (image["height"] - height) / 2
       image.gravity('Center')
       image.crop "#{width}x#{height}+#{woffset}+#{hoffset}"
-      result = image.composite(MiniMagick::Image.open('img/watermark-small.png')) do |c|
+      result = image.composite(MiniMagick::Image.open('assets/images/watermark-small.png')) do |c|
         c.gravity "southeast"
       end
       result.write thumb_file
