@@ -4,7 +4,7 @@ require 'fileutils'
 module Jekyll
   class WatermarkGenerator < Generator
     safe true
-    priority :low
+    priority :high
 
     def generate(site)
       Dir.glob('assets/images/original/*').each do |file|
