@@ -2,7 +2,7 @@ require 'mini_magick'
 require 'fileutils'
 
 module Jekyll
-  class WatermarkGenerator < Jekyll::Generator
+  class WatermarkGenerator < Generator
     safe true
     priority :low
 
