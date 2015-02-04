@@ -3,7 +3,7 @@ require 'fileutils'
 
 module Jekyll
   class WatermarkGenerator < Generator
-    safe true
+    safe false
     priority :high
 
     def generate(site)
