@@ -3,8 +3,8 @@ require 'fileutils'
 
 module Jekyll
   class WatermarkGenerator < Generator
-    safe false
-    priority :high
+    safe true
+    priority :low
 
     def generate(site)
       Dir.glob('assets/images/original/*').each do |file|
@@ -26,7 +26,7 @@ module Jekyll
 
     def destination_path(file)
       new_file = String.new(file)
-      new_file["assets/images/"] = "test"
+      new_file["_photo"] = "assets/images/posts"
       FileUtils.mkdir_p(File.dirname(new_file))
       new_file
     end
