@@ -7,7 +7,7 @@ module Jekyll
     priority :low
 
     def generate(site)
-      Dir.glob('assets/images/original/**/*').each do |file|
+      Dir.glob('assets/images/original/*').each do |file|
         path = destination_path(file)
         if (File.file?(file))
           watermark_image(site, file, path)
@@ -26,7 +26,7 @@ module Jekyll
 
     def destination_path(file)
       new_file = String.new(file)
-      new_file["_photos"] = "assets/images/test"
+      new_file["assets/images/"] = "test"
       FileUtils.mkdir_p(File.dirname(new_file))
       new_file
     end
