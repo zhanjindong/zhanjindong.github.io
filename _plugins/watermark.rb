@@ -26,7 +26,7 @@ module Jekyll
 
     def destination_path(file)
       new_file = String.new(file)
-      new_file["_photo"] = "assets/images/posts"
+      new_file["assets/images/original"] = "assets/images/posts"
       FileUtils.mkdir_p(File.dirname(new_file))
       new_file
     end
