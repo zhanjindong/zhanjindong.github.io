@@ -3,7 +3,7 @@ layout: post
 title: "一道Twitter面试题"
 description: "一道Twitter面试题"
 categories: [notes]
-tags: [Questions]
+tags: [Questions,Algorithm]
 alias: [/2015/02/06/]
 utilities: fancybox,unveil,highlight
 ---
