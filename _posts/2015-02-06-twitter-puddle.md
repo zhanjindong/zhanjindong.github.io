@@ -60,7 +60,7 @@ public class TwitterPuddle {
 	}
 
 	@DataProvider(name = "testCase")
-	public Object[][] testCases() {
+	public Object[][] testCase() {
 		return new Object[][] { 
 				{ new int[] { 2, 5, 1, 3, 1, 2, 1, 7, 7, 6 }, 17 },
 				{ new int[] { 2, 5, 1, 2, 3, 4, 7, 7, 6 }, 10 },
