@@ -46,7 +46,7 @@ utilities: fancybox,unveil,highlight
 <img itemprop="image" data-src="/assets/images/posts/c-girl.png" src="/assets/js/unveil/loader.gif" alt="c-girl.png" />
 </a>
 
-## 答案
+## 答案(Java)
 {: #solution}
 
 
