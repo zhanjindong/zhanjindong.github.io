@@ -28,7 +28,7 @@ utilities: fancybox,unveil,highlight
 <img itemprop="image" data-src="/assets/images/posts/7cc829d3gw1ea56pjntkoj205m03zaa2.jpg" src="/assets/js/unveil/loader.gif" alt="7cc829d3gw1ea56pjntkoj205m03zaa2.jpg" />
 </a>
 
-思考时间
+**思考时间**
 
 <a class="post-image" href="/assets/images/posts/c-girl.png">
 <img itemprop="image" data-src="/assets/images/posts/c-girl.png" src="/assets/js/unveil/loader.gif" alt="c-girl.png" />
@@ -40,7 +40,7 @@ utilities: fancybox,unveil,highlight
 
 先找到最大值，然后从左右分别遍历，这需要两次遍历，也可以一次遍历就搞定，类似快排那样需要两个指针。
 
-思考时间
+**思考时间**
 
 <a class="post-image" href="/assets/images/posts/c-girl.png">
 <img itemprop="image" data-src="/assets/images/posts/c-girl.png" src="/assets/js/unveil/loader.gif" alt="c-girl.png" />
