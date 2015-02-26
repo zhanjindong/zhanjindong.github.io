@@ -16,11 +16,11 @@ kramdown:
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title: Jin Dong
-description: "Personal blog for Jin Dong, a software engineer based in Hefei, China."
+title: Jindong
+description: "Personal blog for Jindong, a software engineer based in Hefei, China."
 # tagline: Site Tagline
 author:
-  name: Jin Dong
+  name: Jindong
   username: zhanjindong
   stackoverflow: 4186131/jindong
   # twitter: username
