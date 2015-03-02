@@ -29,7 +29,7 @@ void *thread(void *vargp)
 }
 {% endhighlight %}
 
-但是死活编译不了，总是报`undefined reference to pthread_create`这个错误。最后还是在tackexchange上找到了[答案][1]
+但是死活编译不了，总是报`undefined reference to pthread_create`这个错误。最后还是在stackexchange上找到了[答案][1]
 原来最新版本的`gcc`需要跟`-pthread`这个参数：
 
 	gcc -pthread hello.c -o hello
