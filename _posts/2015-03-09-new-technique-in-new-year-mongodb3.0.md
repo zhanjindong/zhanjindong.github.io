@@ -8,7 +8,7 @@ alias: [/2015/03/09/]
 utilities: fancybox,unveil,highlight
 ---
 
-前一篇介绍了HTTP/2，今天简单介绍下3月3号发布的MongoDB 3.0。
+前一篇介绍了HTTP/2，这一篇简单介绍下3月3号发布的MongoDB 3.0。
 
 
 * Kramdown table of contents
