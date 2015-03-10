@@ -125,7 +125,7 @@ main thread unlock!
 会发现等待的线程是按照阻塞时的顺序依次获取到锁的。
 这是因为AQS是基于一个叫`CLH lock queue`的一个变种来实现线程阻塞队列的，我们下一篇文章就来简单了解下CLH lock queue。
 
-后续文章计划如下
+后续文章计划如下：
 
 - 《Java并发包源码学习之AQS框架（二）：CLH lock queue和自旋锁》
 - 《Java并发包源码学习之AQS框架（三）：LockSupport》
