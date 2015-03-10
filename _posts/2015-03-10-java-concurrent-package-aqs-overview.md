@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Java并发包源码学习之AQS框架（一）：概述"
-description: "Java并发包源码学习之AQS框架（一）：概述"
+title: "Java并发包源码学习之AQS框架（一）概述"
+description: "Java并发包源码学习之AQS框架（一）概述"
 categories: [articles]
 tags: [Java,AQS]
 alias: [/2015/03/10/]
@@ -127,10 +127,10 @@ main thread unlock!
 
 后续文章计划如下：
 
-- 《Java并发包源码学习之AQS框架（二）：CLH lock queue和自旋锁》
-- 《Java并发包源码学习之AQS框架（三）：LockSupport》
-- 《Java并发包源码学习之AQS框架（四）：AbstractQueuedSynchronizer源码分析》
-- 《Java并发包源码学习之AQS框架（五）：ConditionObject源码分析》
+- 《Java并发包源码学习之AQS框架（二）CLH lock queue和自旋锁》
+- 《Java并发包源码学习之AQS框架（三）LockSupport》
+- 《Java并发包源码学习之AQS框架（四）AbstractQueuedSynchronizer源码分析》
+- 《Java并发包源码学习之AQS框架（五）ConditionObject源码分析》
 
 ……
 
@@ -139,8 +139,8 @@ main thread unlock!
 
 ……
 
-- 《Java并发包源码学习之线程池（一）：概述》
-- 《Java并发包源码学习之线程池（二）：ThreadPoolExecutor源码分析》
+- 《Java并发包源码学习之线程池（一）概述》
+- 《Java并发包源码学习之线程池（二）ThreadPoolExecutor源码分析》
 
 ……
 
