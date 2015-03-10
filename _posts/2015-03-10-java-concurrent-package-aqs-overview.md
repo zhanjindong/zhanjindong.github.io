@@ -135,7 +135,7 @@ main thread unlock!
 ……
 
 - 《Java并发包源码学习之锁（一）概述》
-- 《Java并发包源码学习之锁（二）ReentrantLock分析》
+- 《Java并发包源码学习之锁（二）ReentrantLock源码分析》
 
 ……
 
