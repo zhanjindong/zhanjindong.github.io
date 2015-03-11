@@ -65,11 +65,11 @@ class ClhSpinLock {
 {% endhighlight %}
 
 
-{% highlight Java %}
-
 上面的代码中线程巧妙的通过`ThreadLocal`保存了当前结点和前继结点的引用，自旋就是lock中的while循环。
 总的来说这种实现的好处是保证所有等待线程的公平竞争，而且没有竞争同一个变量，因为每个线程只要等待自己的前继释放就好了。
 而自旋的好处是线程不需要睡眠和唤醒，减小了系统调用的开销。
+
+{% highlight Java %}
 
 public static void main(String[] args) {
     final ClhSpinLock lock = new ClhSpinLock();
