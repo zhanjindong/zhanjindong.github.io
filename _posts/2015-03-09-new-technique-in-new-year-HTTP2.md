@@ -58,7 +58,7 @@ HTTP/2的一个重要目的是让浏览器和服务器之间只建立一个连�
 ### 目前HTTP/2的使用情况？
 {: #http2-implementations}
 
-Github上专门有一个Wiki页跟踪了有哪些HTTP/2的实现。我们比较关心的是Google发布的GRPC。
+Github上专门有一个[Wiki][11]页跟踪了有哪些HTTP/2的实现。我们比较关心的是Google发布的GRPC。
 
 <a class="post-image" href="/assets/images/posts/http2-impl.png">
 <img itemprop="image" data-src="/assets/images/posts/http2-impl.png" src="/assets/js/unveil/loader.gif" alt="http2-impl.png" />
@@ -85,3 +85,4 @@ Github上专门有一个Wiki页跟踪了有哪些HTTP/2的实现。我们比较�
 [8]: http://en.wikipedia.org/wiki/Slow-start
 [9]: http://docs.mongodb.org/manual/release-notes/3.0/
 [10]: https://http2.github.io
+[11]: https://github.com/http2/http2-spec/wiki/Implementations
