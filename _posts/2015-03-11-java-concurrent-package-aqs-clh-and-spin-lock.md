@@ -99,9 +99,9 @@ public static void main(String[] args) {
 `ClhSpinLock`的Node类实现很简单只有一个布尔值，`AbstractQueuedSynchronizer$Node`的实现稍微复杂点，大概是这样的：
 
 
-     +------+  prev +-----+       +-----+
-head |      | <---- |     | <---- |     |  tail
-     +------+       +-----+       +-----+
+	     +------+  prev +-----+       +-----+
+	head |      | <---- |     | <---- |     |  tail
+	     +------+       +-----+       +-----+
 
 
 - head：头指针
