@@ -16,8 +16,8 @@ utilities: fancybox,unveil,highlight
 
 `AbstractQueuedSynchronizer`是通过一个内部类`Node`来实现CLH lock queue的一个变种，但基本原理是类似的。
 
-通常用`CLH lock queue`来实现自旋锁，自旋锁简单来说就是线程通过循环来等待而不是睡眠。
-说了这么多不如代码来的直接，下面的`ClhSpinLock`类实现非常简单，就是一个基于`CLH lock queue`的自旋锁。
+在介绍`Node`类之前，我们来介绍下`Spin Lock`,通常就是用`CLH lock queue`来实现自旋锁，所谓自旋锁简单来说就是线程通过循环来等待而不是睡眠。
+Talk 再多不如 show code:
 
 {% highlight Java %}
 
@@ -67,6 +67,10 @@ class ClhSpinLock {
 
 {% highlight Java %}
 
+上面的代码中线程巧妙的通过`ThreadLocal`保存了当前结点和前继结点的引用，自旋就是lock中的while循环。
+总的来说这种实现的好处是保证所有等待线程的公平竞争，而且没有竞争同一个变量，因为每个线程只要等待自己的前继释放就好了。
+而自旋的好处是线程不需要睡眠和唤醒，减小了系统调用的开销。
+
 public static void main(String[] args) {
     final ClhSpinLock lock = new ClhSpinLock();
     lock.lock();
@@ -89,14 +93,10 @@ public static void main(String[] args) {
 
 {% endhighlight %}
 
-运行的结果应该是跟[上一篇文章][1]中的完全一样的。
-
-上面的代码中线程是通过`ThreadLocal`保存了当前结点和前继结点的引用，自旋就是lock中的while循环。
-总的来说这种实现的好处是保证所有等待线程的公平竞争，而且没有竞争同一个变量，因为每个线程只要等待自己的前继释放就可以了。
-而自旋锁好处是线程不需要睡眠和唤醒，减小了系统调用的开销。
+上面代码的运行的结果应该跟[上一篇文章][1]中的完全一样。
 
 
-上面的Node类实现很简单只有一个布尔值，`AbstractQueuedSynchronizer$Node`的实现稍微复杂点，大概是这样的：
+`ClhSpinLock`的Node类实现很简单只有一个布尔值，`AbstractQueuedSynchronizer$Node`的实现稍微复杂点，大概是这样的：
 
 
      +------+  prev +-----+       +-----+
@@ -111,12 +111,12 @@ head |      | <---- |     | <---- |     |  tail
 
 
 关键不同就是next指针，这是因为AQS中线程不是一直在自旋的，而可能会反复的睡眠和唤醒，这就需要前继释放锁的时候通过next
-指针找到其后继将其唤醒，也就是AQS的等待队列中后继是被前继唤醒的。
+指针找到其后继将其唤醒，也就是AQS的等待队列中后继是被前继唤醒的。AQS结合了自旋和睡眠/唤醒两种方法的优点。
 
-AQS是结合了线程自旋和睡眠/唤醒两种方法，而线程的睡眠和唤醒就是用到我下一篇文章将要讲到的`LockSupport`。
+其中线程的睡眠和唤醒就是用到我下一篇文章将要讲到的`LockSupport`。
 
 
-再提一点，上面的`ClhSpinLock`类中还有一个关键的点就是lock中注释的地方：
+最后提一点，上面的`ClhSpinLock`类中还有一个关键的点就是`lock`方法中注释的地方：
 
 	一个CAS操作即可将当前线程对应的节点加入到队列中，并获取到其前继。
 
