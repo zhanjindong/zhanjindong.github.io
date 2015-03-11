@@ -98,10 +98,13 @@ public static void main(String[] args) {
 
 `ClhSpinLock`的Node类实现很简单只有一个布尔值，`AbstractQueuedSynchronizer$Node`的实现稍微复杂点，大概是这样的：
 
+{% highlight  %}
 
-	     +------+  prev +-----+       +-----+
-	head |      | <---- |     | <---- |     |  tail
-	     +------+       +-----+       +-----+
+     +------+  prev +-----+       +-----+
+head |      | <---- |     | <---- |     |  tail
+     +------+       +-----+       +-----+
+
+{% endhighlight %}
 
 
 - head：头指针
