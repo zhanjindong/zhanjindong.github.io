@@ -96,7 +96,7 @@ public static void main(String[] args) {
 上面代码的运行的结果应该跟[上一篇文章][1]中的完全一样。
 
 
-`ClhSpinLock`的Node类实现很简单只有一个布尔值，`AbstractQueuedSynchronizer$Node`的实现稍微复杂点，大概是这样的：
+`ClhSpinLock`的Node类实现很简单只有一个布尔值，`AbstractQueuedSynchronizer$Node`的实现复杂点，大概是这样的：
 
 {% highlight  %}
 
