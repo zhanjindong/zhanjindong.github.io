@@ -3,7 +3,7 @@ permalink: /:year/:month/:day/:title
 encoding: UTF-8
 exclude: [".rvmrc", ".rbenv-version", "Rakefile", "changelog.md", "Gemfile", "Gemfile.lock", "yizeng.github.io", "vendor"]
 markdown: kramdown
-#highlighter: true
+highlighter: true
 
 kramdown:
   auto_ids: false
