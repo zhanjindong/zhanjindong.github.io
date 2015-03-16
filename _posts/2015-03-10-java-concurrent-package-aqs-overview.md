@@ -30,12 +30,19 @@ AQS简核心是通过一个共享变量来同步状态，变量的状态由子�
 
 {% highlight Java %}
 
+//独占模式获取
 protected boolean tryAcquire(int arg)
+//独占模式释放
 protected boolean tryRelease(int arg)
+//共享模式获取
 protected int tryAcquireShared(int arg)
+//共享模式释放
 protected boolean tryReleaseShared(int arg)
 
 {% endhighlight %}
+
+	所谓独占就是一次只有一个线程能够获取资源，其他线程必须等它释放，共享则可以有多个线程同时获取到；
+	公平和不公平讲的是多个线程同时去获取的时候是粗暴的抢占，还是按照一定的优先级来。
 
 acquire方法用来获取锁，返回true说明线程获取成功继续执行，一旦返回false则线程加入到等待队列中，等待被唤醒，release方法用来释放锁。
 一般来说实现的时候这两个方法被封装为`lock`和`unlock`方法。
