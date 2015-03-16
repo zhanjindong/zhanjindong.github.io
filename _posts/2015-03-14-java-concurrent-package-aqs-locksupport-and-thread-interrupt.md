@@ -5,7 +5,7 @@ description: "Java并发包源码学习之AQS框架（三）LockSupport和interr
 categories: [articles]
 tags: [Java,AQS,LockSupport]
 alias: [/2015/03/14/]
-utilities: fancybox,unveil,highlight
+utilities: fancybox,unveil,highlight,show-hidden
 ---
 
 接着[上一篇文章][1]今天我们来介绍下`LockSupport`和Java中线程的`中断（interrupt）`。
