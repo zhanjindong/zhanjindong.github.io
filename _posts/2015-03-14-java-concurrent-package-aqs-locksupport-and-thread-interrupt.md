@@ -25,8 +25,10 @@ utilities: fancybox,unveil,highlight
 
 `wait/notify`最典型的例子应该就是生产者/消费者了：
 
-{% highlight Java %}
+<a class="show-hidden">{{ site.translations.show }}</a>
 
+{% hide %}
+{% highlight Java %}
 class BoundedBuffer1 {
     private int contents;
 
@@ -105,6 +107,7 @@ class BoundedBuffer1 {
     }
 } 
 {% endhighlight %}
+{% endhide %}
 
 上面的例子中有一点需要知道，在调用对象的`wait`之前当前线程必须先获得该对象的监视器（`synchronized`），被唤醒之后需要重新获取到监视器才能继续执行。
 

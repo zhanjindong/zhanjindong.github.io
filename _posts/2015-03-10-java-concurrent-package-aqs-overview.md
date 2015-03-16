@@ -127,9 +127,9 @@ main thread unlock!
 
 后续文章计划如下：
 
-- 《Java并发包源码学习之AQS框架（二）CLH lock queue和自旋锁》
-- 《Java并发包源码学习之AQS框架（三）LockSupport》
-- 《Java并发包源码学习之AQS框架（四）AbstractQueuedSynchronizer源码分析》
+- [《Java并发包源码学习之AQS框架（二）CLH lock queue和自旋锁》][2]
+- [《Java并发包源码学习之AQS框架（三）LockSupport》][3]
+- [《Java并发包源码学习之AQS框架（四）AbstractQueuedSynchronizer源码分析》][4]
 - 《Java并发包源码学习之AQS框架（五）ConditionObject源码分析》
 
 ……
@@ -149,5 +149,8 @@ main thread unlock!
 
 
 [1]: http://jindong.io/2015/01/20/concurrent-and-tomcat-threads/
+[2]: http://jindong.io/2015/03/11/java-concurrent-package-aqs-clh-and-spin-lock/
+[3]: http://jindong.io/2015/03/14/java-concurrent-package-aqs-locksupport-and-thread-interrupt/
+[4]: http://jindong.io/2015/03/14/java-concurrent-package-aqs-AbstractQueuedSynchronizer/
 
 
