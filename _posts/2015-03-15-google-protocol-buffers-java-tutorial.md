@@ -402,8 +402,7 @@ PB的紧凑得益于**Varint**这种可变长度的整型编码设计。
 </a>
 
 
-
-
+（图片转自[http://www.cnblogs.com/shitouer/archive/2013/04/12/google-protocol-buffers-encoding.html][5]）
 
 
 
