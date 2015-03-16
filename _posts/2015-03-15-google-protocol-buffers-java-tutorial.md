@@ -5,7 +5,7 @@ description: "Google Protocol Buffer 简单介绍"
 categories: [notes]
 tags: [protobuf]
 alias: [/2015/03/15/]
-utilities: highlight
+utilities: fancybox,unveil,highlight
 ---
 
 以下内容整理自[官方文档][3]。
