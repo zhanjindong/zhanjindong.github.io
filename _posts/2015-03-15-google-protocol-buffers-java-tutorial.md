@@ -13,7 +13,7 @@ utilities: fancybox,unveil,highlight
 * Kramdown table of contents
 {:toc .toc}
 
-## 为什么使用 Protocol Buffer
+## 为什么使用 Protocol Buffers
 {: #why-use-protobuf}
 
 通常序列化和解析结构化数据的几种方式？
@@ -22,8 +22,8 @@ utilities: fancybox,unveil,highlight
 - 将数据编码成自己定义的字符串格式。简单高效，但是仅适合比较简单的数据格式。
 - 使用XML序列化。比较普遍的做法，优点很明显，人类可读，扩展性强，自描述。但是相对来说XML结构比较冗余，解析起来比较复杂性能不高。
 
-`Protocol Buffer`是一个更灵活、高效、自动化的解决方案。它通过一个.proto文件描述你想要的数据结构，它能够自动生成解析
-这个数据结构的Java类，这个类提供高效的读写二进制格式数据的API。最重要的是`Protocol Buffer`的扩展性和兼容性很强，只要遵很少的规则
+`Protocol Buffers`是一个更灵活、高效、自动化的解决方案。它通过一个.proto文件描述你想要的数据结构，它能够自动生成解析
+这个数据结构的Java类，这个类提供高效的读写二进制格式数据的API。最重要的是`Protocol Buffers`的扩展性和兼容性很强，只要遵很少的规则
 就可以保证向前和向后兼容。
 
 ## .proto文件
@@ -59,6 +59,8 @@ message AddressBook {
 } 	
 {% endhighlight %}
 
+### Protocol Buffers 语法
+{: #protobuf-language}
 
 .proto文件的语法跟Java的很相似，message相当于class，enum即枚举类型，
 基本的数据类型有`bool`, `int32`, `float`, `double`, 和 `string`，类型前的修饰符有：
@@ -67,13 +69,19 @@ message AddressBook {
 - optional 可选的字段
 - repeated 重复的字段
 
+	> 由于历史原因，数值型的repeated字段后面最好加上[packed=true]，这样能达到更好的编码效果。
+	> repeated int32 samples = 4 [packed=true];
+
 字段后面的1,2,3…是它的字段编号（tag number），注意这个编号在后期协议扩展的时候不能改动。`[default = HOME]`即默认值。
+为了避免命名冲突，每个.proto文件最好都定义一个`package`，package用法和Java的基本类似，也支持`import`。
 
-.proto文件语法很简单，但一旦能嵌套就能定义出非常复杂的数据结构，基本可以满足我们所有的需求。
+{% highlight Java %}
+import "myproject/other_protos.proto";
+{% endhighlight %}
 
-	但是，Protocol Buffer不支持map，如果需要的话只能用两个repeated代替：keys和values。
+有关PB的语法的详细说明，建议看[官方文档][6]。PB的语法相对比较简单，一旦能嵌套就能定义出非常复杂的数据结构，基本可以满足我们所有的需求。
 
-为了避免命名冲突，每个.proto文件最好都定义一个`package`。
+> NOTE: Protocol Buffers不支持map，如果需要的话只能用两个repeated代替：keys和values。
 
 
 
@@ -88,7 +96,7 @@ message AddressBook {
 .proto文件中的`java_package`和`java_outer_classname`定义了生成的Java类的包名和类名。
 
 
-## Protocol Buffer API
+## Protocol Buffers API
 {: #protobuf-api}
 
 `AddressBookProtos.java`中对应.proto文件中的每个message都会生成一个内部类：`AddressBook`和`Person`。
@@ -361,7 +369,7 @@ class ListPeople {
 {: #extending}
 
 实际使用过程中，`.proto`文件可能经常需要进行扩展，协议扩展就需要考虑兼容性的问题，
-`Protocol Buffer`有良好的扩展性，只要遵守一些规则：
+`Protocol Buffers`有良好的扩展性，只要遵守一些规则：
 
 - 不能修改现有字段的`tag number`；
 - 不能添加和删除`required`字段；
@@ -385,8 +393,8 @@ class ListPeople {
 英文好的可以直接看[官方文档][5]，但我觉得博客园上[这篇文章][4]说的更清楚点。
 
 
-总的来说`Protocol Buffer`的编码的优点是非常紧凑、高效，占用空间很小，解析很快，非常适合移动端。
-缺点是不含有类型信息，不能自描述，解析必须依赖`.proto`文件。
+总的来说`Protocol Buffers`的编码的优点是非常紧凑、高效，占用空间很小，解析很快，非常适合移动端。
+缺点是不含有类型信息，不能自描述（[使用一些技巧][7]也可以实现），解析必须依赖`.proto`文件。
 
 Google把PB的这种编码格式叫做`wire-format`。
 
@@ -412,4 +420,5 @@ PB的紧凑得益于**Varint**这种可变长度的整型编码设计。
 [3]: https://developers.google.com/protocol-buffers/docs/javatutorial
 [4]: http://www.cnblogs.com/shitouer/archive/2013/04/12/google-protocol-buffers-encoding.html
 [5]: http://www.cnblogs.com/shitouer/archive/2013/04/12/google-protocol-buffers-encoding.html
-
+[6]: https://developers.google.com/protocol-buffers/docs/proto
+[7]: https://developers.google.com/protocol-buffers/docs/techniques#self-description
