@@ -8,7 +8,7 @@ alias: [/2015/03/15/]
 utilities: fancybox,unveil,highlight
 ---
 
-以下内容整理自[官方文档][3]。
+以下内容主要整理自[官方文档][3]。
 
 * Kramdown table of contents
 {:toc .toc}
