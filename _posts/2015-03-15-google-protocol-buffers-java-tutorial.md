@@ -468,6 +468,121 @@ PB的紧凑得益于**Varint**这种可变长度的整型编码设计。
 （图片转自[http://www.cnblogs.com/shitouer/archive/2013/04/12/google-protocol-buffers-encoding.html][5]）
 
 
+## 对比XML 和 JSON
+{: #vs-xml-and-json}
+
+
+### 数据大小
+{: #data-size}
+
+我们来简单对比下`Protocol Buffer`和`XML`、`JSON`。
+
+**.proto**
+
+{% highlight Java %}
+message Request {
+  repeated string str = 1;
+  repeated int32 a = 2;
+}
+{% endhighlight %}
+
+
+**JavaBean**
+
+{% highlight Java %}
+public class Request {
+	public List<String> strList;
+	public List<Integer> iList;
+}
+{% endhighlight %}
+
+首先我们来对比生成数据大小。测试代码很简单，如下：
+
+{% highlight Java %}
+public static void main(String[] args) throws Exception {
+    int n = 5;
+    String str = "testtesttesttesttesttesttesttest";
+    int val = 100;
+    for (int i = 1; i <=n; i++) {
+        for (int j = 0; j < i; j++) {
+            str += str;
+        }
+        protobuf(i, (int) Math.pow(val, i), str);
+        serialize(i, (int) Math.pow(val, i), str);
+        System.out.println();
+    }
+}
+
+public static void protobuf(int n, int in, String str) {
+    RequestProto.Request.Builder req = RequestProto.Request.newBuilder();
+
+    List<Integer> alist = new ArrayList<Integer>();
+    for (int i = 0; i < n; i++) {
+        alist.add(in);
+    }
+    req.addAllA(alist);
+
+    List<String> strList = new ArrayList<String>();
+    for (int i = 0; i < n; i++) {
+        strList.add(str);
+    }
+    req.addAllStr(strList);
+
+    // System.out.println(req.build());
+    byte[] data = req.build().toByteArray();
+    System.out.println("protobuf size:" + data.length);
+}
+
+public static void serialize(int n, int in, String str) throws Exception {
+    Request req = new Request();
+
+    List<String> strList = new ArrayList<String>();
+    for (int i = 0; i < n; i++) {
+        strList.add(str);
+    }
+    req.strList = strList;
+
+    List<Integer> iList = new ArrayList<Integer>();
+
+    for (int i = 0; i < n; i++) {
+        iList.add(in);
+    }
+    req.iList = iList;
+
+    String xml = SerializationInstance.sharedInstance().simpleToXml(req);
+    // System.out.println(xml);
+    System.out.println("xml size:" + xml.getBytes().length);
+
+    String json = SerializationInstance.sharedInstance().fastToJson(req);
+    // System.out.println(json);
+    System.out.println("json size:" + json.getBytes().length);
+} 
+{% endhighlight %}
+
+
+随着n的增大，`int`类型数值越大，`string`类型的值也越大。我们先将`str`置为空：
+
+<a class="post-image" href="/assets/images/posts/protobuf-int-size.png">
+<img itemprop="image" data-src="/assets/images/posts/protobuf-int-size.png" src="/assets/js/unveil/loader.gif" alt="protobuf-int-size.png" />
+</a>
+
+还原str值，将`val`置为1：
+
+<a class="post-image" href="/assets/images/posts/protobuf-string-size.png">
+<img itemprop="image" data-src="/assets/images/posts/protobuf-string-size.png" src="/assets/js/unveil/loader.gif" alt="protobuf-string-size.png" />
+</a>
+
+可以看到对于int型的字段`protobuf`比`xml`和`json`的都要小不少，尤其是xml，这得益于它的`Varint`编码。对于string类型的话，随着字符串内容越多，
+三者之间基本就没有差距了。
+
+
+### 序列化性能
+{: #serialization-perf}
+
+
+
+### 解析性能
+{: #parsing-perf}
 
 
 [1]: http://jindong.io/assets/downloads/protoc.exe
