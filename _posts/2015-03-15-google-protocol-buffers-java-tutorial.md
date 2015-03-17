@@ -107,6 +107,20 @@ extend Foo {
 }
 {% endhighlight %}
 
+也可以嵌套：
+
+{% highlight Java %}
+message Bar {
+
+    extend Foo {
+	optional int32 bar = 102;
+    }
+
+    optional string name =1;
+    optional Foo foo = 2;
+} 
+{% endhighlight %}
+
 Java中设置扩展的字段：
 
 {% highlight Java %}
@@ -115,9 +129,10 @@ bar.setName("zjd");
 		
 FooProto.Foo.Builder foo = FooProto.Foo.newBuilder();
 foo.setA(1);
-foo.setExtension(BarProto.bar,12);
+foo.setExtension(BarProto.Bar.bar,12);
 		
 bar.setFoo(foo.build());
+System.out.println(bar.getFoo().getExtension(BarProto.Bar.bar));
 {% endhighlight %}
 
 个人觉得使用起来非常不方便。
