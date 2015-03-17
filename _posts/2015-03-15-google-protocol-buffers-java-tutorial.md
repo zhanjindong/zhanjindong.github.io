@@ -69,8 +69,10 @@ message AddressBook {
 - optional 可选的字段
 - repeated 重复的字段
 
-	> 由于历史原因，数值型的repeated字段后面最好加上[packed=true]，这样能达到更好的编码效果。
-	> repeated int32 samples = 4 [packed=true];
+> NOTE 1: 由于历史原因，数值型的repeated字段后面最好加上[packed=true]，这样能达到更好的编码效果。
+> repeated int32 samples = 4 [packed=true];
+
+> NOTE 2: Protocol Buffers不支持map，如果需要的话只能用两个repeated代替：keys和values。
 
 字段后面的1,2,3…是它的字段编号（tag number），注意这个编号在后期协议扩展的时候不能改动。`[default = HOME]`即默认值。
 为了避免命名冲突，每个.proto文件最好都定义一个`package`，package用法和Java的基本类似，也支持`import`。
@@ -79,10 +81,48 @@ message AddressBook {
 import "myproject/other_protos.proto";
 {% endhighlight %}
 
+**扩展**
+
+PB语法虽然跟Java类似，但是它并没有继承机制，它有所谓的`Extensions`，这很不同于我们原来基于面向对象的`JavaBeans`式的协议设计。
+
+`Extensions`就是我们定义`message`的时候保留一些`field number` 让第三方去扩展。
+
+{% highlight Java %}
+message Foo {
+  required int32 a = 1;
+  extensions 100 to 199;
+}
+{% endhighlight %}
+
+
+{% highlight Java %}
+message Bar {
+
+    optional string name =1;
+    optional Foo foo = 2;
+} 
+
+extend Foo {
+	optional int32 bar = 102;
+}
+{% endhighlight %}
+
+Java中设置扩展的字段：
+
+{% highlight Java %}
+BarProto.Bar.Builder bar = BarProto.Bar.newBuilder();
+bar.setName("zjd");
+		
+FooProto.Foo.Builder foo = FooProto.Foo.newBuilder();
+foo.setA(1);
+foo.setExtension(BarProto.bar,12);
+		
+bar.setFoo(foo.build());
+{% endhighlight %}
+
+个人觉得使用起来非常不方便。
+
 有关PB的语法的详细说明，建议看[官方文档][6]。PB的语法相对比较简单，一旦能嵌套就能定义出非常复杂的数据结构，基本可以满足我们所有的需求。
-
-> NOTE: Protocol Buffers不支持map，如果需要的话只能用两个repeated代替：keys和values。
-
 
 
 ## 编译.proto文件
