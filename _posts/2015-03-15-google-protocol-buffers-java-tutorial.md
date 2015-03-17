@@ -22,7 +22,7 @@ utilities: fancybox,unveil,highlight
 - 将数据编码成自己定义的字符串格式。简单高效，但是仅适合比较简单的数据格式。
 - 使用XML序列化。比较普遍的做法，优点很明显，人类可读，扩展性强，自描述。但是相对来说XML结构比较冗余，解析起来比较复杂性能不高。
 
-`Protocol Buffer`是一个更灵活、高效、自动化的解决方案。它通过一个.proto文件描述和保存你想要的数据结构，它能够自动生成解析
+`Protocol Buffer`是一个更灵活、高效、自动化的解决方案。它通过一个.proto文件描述你想要的数据结构，它能够自动生成解析
 这个数据结构的Java类，这个类提供高效的读写二进制格式数据的API。最重要的是`Protocol Buffer`的扩展性和兼容性很强，只要遵很少的规则
 就可以保证向前和向后兼容。
 
@@ -67,9 +67,9 @@ message AddressBook {
 - optional 可选的字段
 - repeated 重复的字段
 
-字段后面的1,2,3…是它的标识编号，注意这个编号在后期协议扩展的时候不能改动。`[default = HOME]`默认值。
+字段后面的1,2,3…是它的字段编号（tag number），注意这个编号在后期协议扩展的时候不能改动。`[default = HOME]`即默认值。
 
-.proto文件很简单，但一旦能嵌套就能定义出非常复杂的数据结构，基本可以满足我们所有的需求。
+.proto文件语法很简单，但一旦能嵌套就能定义出非常复杂的数据结构，基本可以满足我们所有的需求。
 
 	但是，Protocol Buffer不支持map，如果需要的话只能用两个repeated代替：keys和values。
 
@@ -388,7 +388,7 @@ class ListPeople {
 总的来说`Protocol Buffer`的编码的优点是非常紧凑、高效，占用空间很小，解析很快，非常适合移动端。
 缺点是不含有类型信息，不能自描述，解析必须依赖`.proto`文件。
 
-Google把PB的编码格式叫做`wire-format`。
+Google把PB的这种编码格式叫做`wire-format`。
 
 <a class="post-image" href="/assets/images/posts/message-buffer.jpg">
 <img itemprop="image" data-src="/assets/images/posts/message-buffer.jpg" src="/assets/js/unveil/loader.gif" alt="message-buffer.jpg" />
