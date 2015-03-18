@@ -576,13 +576,37 @@ public static void serialize(int n, int in, String str) throws Exception {
 三者之间基本就没有差距了。
 
 
+针对序列话和解析（反序列化）的性能，选了几个我们项目中比较常用的方案和`Protocol Buffer`做了下对比，
+只是简单的基准测试（用的是[`bb.jar`][8]）结果如下：
+
+
 ### 序列化性能
 {: #serialization-perf}
 
+<a class="post-image" href="/assets/images/posts/protobuf-vs-xml-json-serialize.png">
+<img itemprop="image" data-src="/assets/images/posts/protobuf-vs-xml-json-serialize.png" src="/assets/js/unveil/loader.gif" alt="protobuf-vs-xml-json-serialize.png" />
+</a>
+
+<a class="post-image" href="/assets/images/posts/protobuf-vs-xml-json-serialize-tu.png">
+<img itemprop="image" data-src="/assets/images/posts/protobuf-vs-xml-json-serialize-tu.png" src="/assets/js/unveil/loader.gif" alt="protobuf-vs-xml-json-serialize-tu.png" />
+</a>
+
+可以看到数据量较小的情况下，protobuf要比一般的xml，json序列化**快1-2个数量级**，`fastjson`已经很快了，但是protobuf比它还是要快不少。
 
 
 ### 解析性能
 {: #parsing-perf}
+
+<a class="post-image" href="/assets/images/posts/protobuf-parsing.png">
+<img itemprop="image" data-src="/assets/images/posts/protobuf-parsing.png" src="/assets/js/unveil/loader.gif" alt="protobuf-parsing.png" />
+</a>
+
+<a class="post-image" href="/assets/images/posts/protobuf-parsing-tu.png">
+<img itemprop="image" data-src="/assets/images/posts/protobuf-parsing-tu.png" src="/assets/js/unveil/loader.gif" alt="protobuf-parsing-tu.png" />
+</a>
+
+protobuf解析的性能比一般的xml,json反序列化要**快2-3**个数量级，比fastjson也要快1个数量级左右。
+
 
 
 [1]: http://jindong.io/assets/downloads/protoc.exe
@@ -592,3 +616,4 @@ public static void serialize(int n, int in, String str) throws Exception {
 [5]: http://www.cnblogs.com/shitouer/archive/2013/04/12/google-protocol-buffers-encoding.html
 [6]: https://developers.google.com/protocol-buffers/docs/proto
 [7]: https://developers.google.com/protocol-buffers/docs/techniques#self-description
+[8]: http://www.ellipticgroup.com/html/benchmarkingArticle.html
