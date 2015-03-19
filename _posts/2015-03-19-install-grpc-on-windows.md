@@ -136,9 +136,7 @@ $ gradle install
 
 官方也明确说明了[https://github.com/grpc/grpc-java/issues/87][10]不支持：
 
-	Building on Windows with gradle doesn't currently work. 
-	Getting gradle set up correctly is a bit more involved than we thought.However, 
-	one can work around this issue by manually building the plugin with Visual Studio.
+	Building on Windows with gradle doesn't currently work. Getting gradle set up correctly is a bit more involved than we thought.However, one can work around this issue by manually building the plugin with Visual Studio.
 
 一个解决办法就是跟上面编译protobuf一样需要手动用VS编译`protobuf_plugin`。或者忽视这几个工程，核心的部分还是可以编译成功的。
 
