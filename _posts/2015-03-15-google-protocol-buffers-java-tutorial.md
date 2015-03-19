@@ -74,7 +74,7 @@ message AddressBook {
 
 > <s>NOTE 2: Protocol Buffers不支持map，如果需要的话只能用两个repeated代替：keys和values。</s> 
 
-**proto3已经支持map了，** 需要最新版本的编译程序编译。
+**proto3貌似已经支持map了，** 需要最新版本的编译程序编译。
 
 {% highlight Java %}
 syntax = "proto3";
