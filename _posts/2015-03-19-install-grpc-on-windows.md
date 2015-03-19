@@ -58,7 +58,7 @@ gRPC是Google最近才发布的一个基于[HTTP/2][11]和[Protocol Buffer][3]�
 然后分别打开`$PROTOBUF_HOME$\java`和`$PROTOBUF_HOME$\javanano`目录下的pom文件，搜索`../src/protoc`替换为`../src/protoc.exe`，
 然后分别instal：
 
-{% highlight Shell %}
+{% highlight Java %}
 cd java
 mvn install
 
@@ -77,7 +77,7 @@ mvn install
 ### 源码下载
 {: #source-download}
 
-{% highlight Shell %}
+{% highlight Java %}
 $ git clone https://github.com/grpc/grpc-java.git
 {% endhighlight %}
 
@@ -87,7 +87,7 @@ $ git clone https://github.com/grpc/grpc-java.git
 
 GRPC依赖`netty4.1+`和`codec-http2 `（HTTP/2的介绍可以看我[之前的一篇博客][7]）。
 
-{% highlight Shell %}
+{% highlight Java %}
 $ git submodule update --init
 $ cd lib/netty
 $ mvn install -pl codec-http2 -am -DskipTests=true
@@ -99,7 +99,7 @@ $ mvn install -pl codec-http2 -am -DskipTests=true
 编译过程中`gradle wrapper`需要到[这里][8]下载gradle，最好全程[科学上网][9]。实在没办法可以先下好gradle，修改
 `gradle-wrapper.properties`如下：
 
-{% highlight Shell %}
+{% highlight Java %}
 #Tue Jan 27 15:29:30 PST 2015
 distributionBase=GRADLE_USER_HOME
 distributionPath=wrapper/dists
@@ -117,7 +117,7 @@ windows下编译需要指定protobuf源码和编译出来的库文件，在grpc�
 
 编译`grpc-java`工程：
 
-{% highlight Shell %}
+{% highlight Java %}
 $ gradle install
 {% endhighlight %}
 
@@ -136,7 +136,9 @@ $ gradle install
 
 官方也明确说明了[https://github.com/grpc/grpc-java/issues/87][10]不支持：
 
-	Building on Windows with gradle doesn't currently work. Getting gradle set up correctly is a bit more involved than we thought.However, one can work around this issue by manually building the plugin with Visual Studio.
+	Building on Windows with gradle doesn't currently work. 
+	Getting gradle set up correctly is a bit more involved than we thought.However, 
+	one can work around this issue by manually building the plugin with Visual Studio.
 
 一个解决办法就是跟上面编译protobuf一样需要手动用VS编译`protobuf_plugin`。或者忽视这几个工程，核心的部分还是可以编译成功的。
 
