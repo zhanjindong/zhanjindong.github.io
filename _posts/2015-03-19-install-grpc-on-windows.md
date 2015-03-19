@@ -3,7 +3,7 @@ layout: post
 title: "Windows 下安装 gRPC"
 description: "Windows 下安装 gRPC"
 categories: [notes]
-tags: [soft install]
+tags: [grpc]
 alias: [/2015/03/19/]
 utilities: fancybox,unveil,highlight
 ---
