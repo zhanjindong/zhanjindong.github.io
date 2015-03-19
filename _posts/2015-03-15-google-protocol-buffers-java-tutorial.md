@@ -72,7 +72,22 @@ message AddressBook {
 > NOTE 1: 由于历史原因，数值型的repeated字段后面最好加上[packed=true]，这样能达到更好的编码效果。
 > repeated int32 samples = 4 [packed=true];
 
-> NOTE 2: Protocol Buffers不支持map，如果需要的话只能用两个repeated代替：keys和values。
+> <s>NOTE 2: Protocol Buffers不支持map，如果需要的话只能用两个repeated代替：keys和values。</s> 
+
+**proto3已经支持map了，** 需要最新版本的编译程序编译。
+
+{% highlight Java %}
+syntax = "proto3";
+
+map<int32, int32>        int32_to_int32_field = 1;
+map<int32, string>       int32_to_string_field = 2;
+map<int32, bytes>        int32_to_bytes_field = 3;
+map<int32, EnumValue>    int32_to_enum_field = 4;
+map<int32, MessageValue> int32_to_message_field = 5;
+map<string, int32>       string_to_int32_field = 6;
+map<bool, bool>          bool_to_bool_field = 7;
+{% endhighlight %}
+
 
 字段后面的1,2,3…是它的字段编号（tag number），注意这个编号在后期协议扩展的时候不能改动。`[default = HOME]`即默认值。
 为了避免命名冲突，每个.proto文件最好都定义一个`package`，package用法和Java的基本类似，也支持`import`。
@@ -609,7 +624,7 @@ protobuf解析的性能比一般的xml,json反序列化要**快2-3**个数量级
 
 
 
-[1]: http://jindong.io/assets/downloads/protoc.exe
+[1]: https://github.com/google/protobuf/releases/download/v3.0.0-alpha-2/protoc-3.0.0-alpha-2-win32.zip
 [2]: https://developers.google.com/protocol-buffers/docs/encoding
 [3]: https://developers.google.com/protocol-buffers/docs/javatutorial
 [4]: http://www.cnblogs.com/shitouer/archive/2013/04/12/google-protocol-buffers-encoding.html
