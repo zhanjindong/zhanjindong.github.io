@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Windows 下安装 gRPC"
-description: "Windows 下安装 gRPC"
+title: "Windows 下编译 gRPC"
+description: "Windows 下编译 gRPC"
 categories: [notes]
 tags: [grpc]
 alias: [/2015/03/19/]
@@ -12,7 +12,7 @@ gRPC是Google最近才发布的一个基于[HTTP/2][11]和[Protocol Buffer][3]�
 
 项目地址：[https://github.com/grpc/grpc-java][12]。
 
-[官方文档][1]其实说的比较清楚，但它主要针对的Linux，Winows下面安装稍微麻烦点。
+[官方文档][1]其实说的比较清楚，但它主要针对的Linux，Winows下面稍微麻烦点。
 * Kramdown table of contents
 {:toc .toc}
 
