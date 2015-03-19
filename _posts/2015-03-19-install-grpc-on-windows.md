@@ -99,15 +99,13 @@ $ mvn install -pl codec-http2 -am -DskipTests=true
 编译过程中`gradle wrapper`需要到[这里][8]下载gradle，最好全程[科学上网][9]。实在没办法可以先下好gradle，修改
 `gradle-wrapper.properties`如下：
 
-{% highlight Java %}
-#Tue Jan 27 15:29:30 PST 2015
-distributionBase=GRADLE_USER_HOME
-distributionPath=wrapper/dists
-zipStoreBase=GRADLE_USER_HOME
-zipStorePath=wrapper/dists
-#distributionUrl=https\://services.gradle.org/distributions/gradle-2.2.1-all.zip
-distributionUrl=gradle-2.3-all.zip
-{% endhighlight %}
+	#Tue Jan 27 15:29:30 PST 2015
+	distributionBase=GRADLE_USER_HOME
+	distributionPath=wrapper/dists
+	zipStoreBase=GRADLE_USER_HOME
+	zipStorePath=wrapper/dists
+	#distributionUrl=https\://services.gradle.org/distributions/gradle-2.2.1-all.zip
+	distributionUrl=gradle-2.3-all.zip
 
 
 windows下编译需要指定protobuf源码和编译出来的库文件，在grpc工程根目录创建文件`gradle.properties`，写入内容：
