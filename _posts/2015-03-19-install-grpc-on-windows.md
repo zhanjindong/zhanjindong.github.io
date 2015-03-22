@@ -136,6 +136,11 @@ $ gradle install
 	Building on Windows with gradle doesn't currently work. Getting gradle set up correctly is a bit more involved than we thought.However, one can work around this issue by manually building the plugin with Visual Studio.
 
 一个解决办法就是跟上面编译protobuf一样需要手动用VS编译`protobuf_plugin`。或者忽视这几个工程，核心的部分还是可以编译成功的。
+编译完成后在相应的工程的`build/libs`目录下就能看到jar包了：
+
+<a class="post-image" href="/assets/images/posts/grpc-compiler-result.png">
+<img itemprop="image" data-src="/assets/images/posts/grpc-compiler-result.png" src="/assets/js/unveil/loader.gif" alt="grpc-compiler-result.png" />
+</a>
 
 ### 手动编译 protobuf_plugin
 {: #compiler-protobuf-plugin-with-vs}
