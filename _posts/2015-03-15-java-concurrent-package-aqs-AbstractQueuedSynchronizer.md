@@ -15,10 +15,9 @@ utilities: fancybox,unveil,highlight
 - [《Java并发包源码学习之AQS框架（二）CLH lock queue和自旋锁》][2]
 - [《Java并发包源码学习之AQS框架（三）LockSupport》][3]
 
-分析源码是非常枯燥乏味的一件事，其实代码本身其实就是最好的说明了，因此基本都是贴出一些代码加上一些注释，
-因为`AbstractQueuedSynchronizer`上千行代码不可能也不需要每行都要分析，所以只捡一些关键的地方或
-比较难理解的地方做说明，有一些地方可能我理解的有出入，欢迎大家指正。
-详细的注释我都放在了[GitHub上][4]。
+分析源码是非常枯燥的一件事，主要就是贴源码加上一些注释。
+因为`AbstractQueuedSynchronizer`上千行代不需要每行都要读懂，所以只捡一些关键的地方做说明，
+有一些地方可能我理解的有出入，欢迎大家指正。详细的注释我都放在了[GitHub上][4]。
 
 
 前面提到`AQS`是基于[CLH lock queue][2]的，`AbstractQueuedSynchronizer`是通过一个内部类`Node`实现了一个变种。
