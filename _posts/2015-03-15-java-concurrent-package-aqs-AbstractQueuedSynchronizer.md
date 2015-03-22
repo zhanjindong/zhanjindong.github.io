@@ -110,8 +110,7 @@ private Node enq(final Node node) {
 {% highlight Java %}
 public final void acquire(int arg) {
     // tryAcquire 由子类实现本身不会阻塞线程，如果返回 true,则线程继续，
-    // 如果返回 false 那么就 
-    加入阻塞队列阻塞线程，并等待前继结点释放锁。
+    // 如果返回 false 那么就加入阻塞队列阻塞线程，并等待前继结点释放锁。
     if (!tryAcquire(arg) && acquireQueued(addWaiter(Node.EXCLUSIVE), arg))
         // acquireQueued返回true，说明当前线程被中断唤醒后获取到锁，
         // 重置其interrupt status为true。
@@ -153,8 +152,7 @@ final boolean acquireQueued(final Node node, int arg) {
             // parkAndCheckInterrupt返回可能是前继unpark或线程被中断。
             if (shouldParkAfterFailedAcquire(p, node) && parkAndCheckInterrupt())
                 // 说明当前线程是被中断唤醒的。
-                // 
-                注意：线程被中断之后会继续走到if处去判断，也就是会忽视中断。
+                // 注意：线程被中断之后会继续走到if处去判断，也就是会忽视中断。
                 // 除非碰巧线程中断后acquire成功了，那么根据Java的最佳实践，
                 // 需要重新设置线程的中断状态（acquire.selfInterrupt）。
                 interrupted = true;
