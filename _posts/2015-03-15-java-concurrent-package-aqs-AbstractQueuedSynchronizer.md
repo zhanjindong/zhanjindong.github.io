@@ -335,7 +335,7 @@ private void doReleaseShared() {
 
 ## 共享模式释放
 
-主要逻辑也就会`doReleaseShared`。
+主要逻辑也就是`doReleaseShared`。
 
 {% highlight Java %}
 public final boolean releaseShared(int arg) {
