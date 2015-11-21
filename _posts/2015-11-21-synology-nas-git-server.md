@@ -45,11 +45,11 @@ utilities: fancybox,unveil,highlight
 
 在Windows（其他系统Git的命令都一样）下打开repository目录（\\ZJD-NAS\repository），进入git bash:
 
-{% highlight shell %}
+{% highlight %}
 
-mkdir test.git #创建Git项目
+mkdir test.git //创建Git项目
 cd test.git
-git --bare init #初始化远程仓库
+git --bare init //初始化远程仓库
 git update-server-info
 
 {% endhighlight %}
@@ -58,7 +58,7 @@ git update-server-info
 ok,Git Server已经搭建起来了。
 
 
-{% highlight shell %}
+{% highlight %}
 
 git clone ssh://gituser@192.168.1.104/volume1/repository/test.git
 
@@ -67,7 +67,7 @@ git clone ssh://gituser@192.168.1.104/volume1/repository/test.git
 
 或者将本地的仓库上传到服务器上去：
 
-{% highlight shell %}
+{% highlight %}
 
 mkdir test
 cd test
@@ -89,7 +89,7 @@ git push origin master
 <img itemprop="image" data-src="/assets/images/posts/nas-webdav.png" src="/assets/js/unveil/loader.gif" alt="nas-webdav.png" />
 </a>
 
-{% highlight shell %}
+{% highlight %}
 
 git clone http://gituser@192.168.1.104:5005/volume1/repository/test.git
 
