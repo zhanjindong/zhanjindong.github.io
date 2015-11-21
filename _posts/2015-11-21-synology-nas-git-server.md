@@ -45,7 +45,7 @@ utilities: fancybox,unveil,highlight
 
 在Windows（其他系统Git的命令都一样）下打开repository目录（\\ZJD-NAS\repository），进入git bash:
 
-{% highlight %}
+{% highlight java %}
 
 mkdir test.git 
 cd test.git
@@ -58,7 +58,7 @@ git update-server-info
 ok,Git Server已经搭建起来了。
 
 
-{% highlight %}
+{% highlight java %}
 
 git clone ssh://gituser@192.168.1.104/volume1/repository/test.git
 
@@ -67,7 +67,7 @@ git clone ssh://gituser@192.168.1.104/volume1/repository/test.git
 
 或者将本地的仓库上传到服务器上去：
 
-{% highlight %}
+{% highlight java %}
 
 mkdir test
 cd test
@@ -81,7 +81,22 @@ git push origin master
 {% endhighlight %}
 
 
+6、WevDav
 
+上面是用SSH访问，启用WebDav功能就可以通过HTTP或HTTPS的方式来访问Git Server了。控制面板 → 文件服务 → WebDav
+
+<a class="post-image" href="/assets/images/posts/nas-webdav.png">
+<img itemprop="image" data-src="/assets/images/posts/nas-webdav.png" src="/assets/js/unveil/loader.gif" alt="nas-webdav.png" />
+</a>
+
+{% highlight java %}
+
+git clone http://gituser@192.168.1.104:5005/volume1/repository/test.git
+
+{% endhighlight %}
+
+
+参考文档：[http://blog.osdev.org/git/2014/02/13/using-git-on-a-synology-nas.html][1]
 
 
 
