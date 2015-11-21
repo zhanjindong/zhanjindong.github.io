@@ -44,6 +44,28 @@ utilities: fancybox,unveil,highlight
 
 
 
+6、WevDav
+
+上面是用SSH访问，启用WebDav功能就可以通过HTTP或HTTPS的方式来访问Git Server了。控制面板 → 文件服务 → WebDav
+
+<a class="post-image" href="/assets/images/posts/nas-webdav.png">
+<img itemprop="image" data-src="/assets/images/posts/nas-webdav.png" src="/assets/js/unveil/loader.gif" alt="nas-webdav.png" />
+</a>
+
+{% highlight %}
+
+git clone http://gituser@192.168.1.104:5005/volume1/repository/test.git
+
+{% endhighlight %}
+
+
+参考文档：[http://blog.osdev.org/git/2014/02/13/using-git-on-a-synology-nas.html][1]
+
+
+
+[1]: http://blog.osdev.org/git/2014/02/13/using-git-on-a-synology-nas.html
+
+
 
 
 
