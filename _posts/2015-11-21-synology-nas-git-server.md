@@ -26,6 +26,21 @@ utilities: fancybox,unveil,highlight
 </a>
 
 
+4、创建和配置Git Server用户（根据需要，默认admin管理员当然可以）。
+
+1）控制面板 → 用户账号：我这里创建了一个gituser用户，并设置了对repository目录的读写权限。
+
+<a class="post-image" href="/assets/images/posts/nas-user.png">
+<img itemprop="image" data-src="/assets/images/posts/nas-user.png" src="/assets/js/unveil/loader.gif" alt="nas-user.png" />
+</a>
+
+2）主菜单 → Git Server: 勾选用户。
+
+<a class="post-image" href="/assets/images/posts/nas-git-user.png">
+<img itemprop="image" data-src="/assets/images/posts/nas-git-user.png" src="/assets/js/unveil/loader.gif" alt="nas-git-user.png" />
+</a>
+
+
 
 
 
