@@ -47,9 +47,9 @@ utilities: fancybox,unveil,highlight
 
 {% highlight %}
 
-mkdir test.git //创建Git项目
+mkdir test.git 
 cd test.git
-git --bare init //初始化远程仓库
+git --bare init 
 git update-server-info
 
 {% endhighlight %}
