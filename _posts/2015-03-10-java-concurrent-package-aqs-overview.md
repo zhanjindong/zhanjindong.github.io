@@ -20,7 +20,7 @@ AQS其实就是`java.util.concurrent.locks.AbstractQueuedSynchronizer`这个类�
 整个包中很多类的结构都是如此，比如`Semaphore`,`CountDownLatch`都有一个内部类`Sync`，而所有的Sync都是继承自`AbstractQueuedSynchronizer`。
 所以说想要读懂Java并发包的代码，首先得读懂这个类。
 
-AQS简核心是通过一个共享变量来同步状态，变量的状态由子类去维护，而AQS框架做的是：
+AQS的核心是通过一个共享变量来同步状态，变量的状态由子类去维护，而AQS框架做的是：
 
 - 线程阻塞队列的维护
 - 线程阻塞和唤醒
