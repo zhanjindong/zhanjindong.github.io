@@ -1,16 +1,330 @@
----
-layout: page
-title: Test
-header: Assets
-description: "."
-group: navigation
-priority: 0.8
-js_utils: back-to-top
----
-<ul>
-  {% directory path: assets/pdf exclude: private %}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="Jindong">
+    <meta name="description" content="." />
+    <meta name="keywords" content="zhanjindong,software,engineer,iflytek,hefei,zhanjindong,,jindong,java" />
+    
+
+    <title>Assets - Jindong</title>
+
+    <link href='/assets/css/blog-style.css' rel="stylesheet" type="text/css">
+    <link href="/rss.xml" rel="alternate" title="Jindong" type="application/rss+xml">
+
+    <!--[if IE]>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
+        <script>window.Modernizr || document.write('<script src="/assets/js/modernizr-2.0.6.min.js"><\/script>')</script>
+    <![endif]-->
+    <!--[if !IE]> -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+        <script>window.Modernizr || document.write('<script src="/assets/js/modernizr-2.6.2.min.js"><\/script>')</script>
+    <!-- <![endif]-->
+    
+
+    <script>
+        if (!navigator.userAgent.match(/.*(Pingdom|PhantomJS|StatusCake).*/gi)) {
+            
+                    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-58648961-1', 'auto');
+ga('send', 'pageview');
+                
+        }
+    </script>
+
+
+</head>
+
+<body>
+    <!--[if IE]>
+        <p class="site-notice">You are using an outdated browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true" target="_blank">activate Google Chrome Frame</a> to improve your experience.</p>
+    <![endif]-->
+    <noscript>
+        <p class="site-notice">This site requires JavaScript. Here are the instructions <a href="http://www.enable-javascript.com/" target="_blank">how to enable JavaScript in your web browser</a>.</p>
+    </noscript>
+
+    <div class="nav-wrapper">
+        <div class="nav-form">
+            <span class="overlay-header menu">Menu</span>
+            <a class="btn-close">Close</a>
+            <div class="results">
+                <a href="/archives">Archives</a>
+                <a href="/categories/#articles">Articles</a>
+                <a href="/categories/#notes">Notes</a>
+                <a href="/categories">Categories</a>
+                <a href="/tags">Tags</a>
+                <a href="/">About</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="search-wrapper">
+        <div class="search-form">
+            <input type="text" class="overlay-header search-field" placeholder="Search...">
+            <a class="btn-close">Close</a>
+            <ul class="results"></ul>
+        </div>
+    </div>
+
+    <div id="page" class="hentry">
+        <header class="the-header">
+            <div class="unit-head">
+                <div class="unit-inner unit-head-inner">
+                    <nav class="nav-global">
+                        <ul>
+                            <li class="logo nav-link">
+                                <button class="btn-menu" data-ga="Menu"></button>
+                                <a href="/blog">Jindong</a>
+                                <!--[if !IE]> --><button class="btn-search" data-ga="Search"></button><!-- <![endif]-->
+                            </li>
+                            <li class="nav-link"><a data-ga="Archives" href="/archives">Archives</a></li>
+                            <li class="nav-link"><a data-ga="Articles" href="/categories#articles">Articles</a></li>
+                            <li class="nav-link"><a data-ga="Notes" href="/categories#notes">Notes</a></li>
+                            <li class="nav-link"><a data-ga="Categories" href="/categories">Categories</a></li>
+                            <li class="nav-link"><a data-ga="Tags" href="/tags">Tags</a></li>
+                            <!--[if !IE]> --><li class="nav-link"><a data-ga="Search" class="btn-search" href="#">Search</a></li><!-- <![endif]-->
+                        </ul>
+                    </nav>
+                </div><!-- unit-inner -->
+            </div><!-- unit-head -->
+        </header>
+
+        <div class="body animated fadeInDown" role="main">
+            <div class="unit-body">
+                <div class="unit-inner unit-body-inner">
+                    <div class="entry-content">
+                        
+<article class="unit-article layout-page">
+    <div class="unit-inner unit-article-inner">
+        <div class="content">
+            <header>
+                <div class="unit-head">
+                    <div class="unit-inner unit-head-inner">
+                        <h1 class="entry-title">Assets</h1>
+                    </div><!-- unit-inner -->
+                </div><!-- unit-head -->
+            </header>
+
+            <div class="bd">
+                <div class="entry-content">
+                    <ul>
+  
     <li>
-      <a href="{{ file.url }}" >{{ file.name }}</a>{% unless forloop.last %} {% endunless %}	
+      <a href="/assets/pdf/Servlet3.1-Specification.pdf" >Servlet3.1-Specification.pdf</a>	
     </li>
-  {% enddirectory %}
+  
 </ul>
+                </div><!-- entry-content -->
+            </div><!-- bd -->
+
+            <footer class="unit-foot">
+                <div class="unit-inner unit-foot-inner">
+                    <p class="gotop">
+                        <a class="internal" href="#page">Back to Top</a>
+                    </p>
+                </div>
+            </footer>
+        </div><!-- content -->
+    </div><!-- unit-inner -->
+</article>
+
+
+                    </div>
+                </div><!-- unit-inner -->
+            </div><!-- unit-body -->
+        </div><!-- body -->
+
+        <footer class="the-footer">
+            <div class="unit-foot">
+                <div class="unit-inner unit-foot-inner">
+                    <div class="misc vcard">
+                        <div class="about">
+                            <h4><a href="/">About</a></h4>
+                            
+                                <p>
+                                    <span class="fn p-name">Jindong</span>,
+                                    <span class="p-job-title">a software developer</span>
+                                    <span> based in </span>
+                                    <span class="adr h-adr p-adr">
+                                        <abbr class="locality p-locality">Hefei</abbr>, 
+                                        <abbr class="country-name p-country-name">China</abbr>.
+                                    </span>
+                                </p>
+                                <p><a href="https://github.com/zhanjindong/zhanjindong.github.io#license" target="_blank">License</a> &amp; <a href="https://github.com/yizeng/yizeng.me/wiki/Acknowledgements" target="_blank">Acknowledgements</a></p>
+                            
+                            
+                        </div>
+                        <div class="social-links">
+                            <a class="ico-linkedin" href="http://linkedin.com/in/zhanjindongnz/" rel="me" target="_blank" title="LinkedIn Profile"></a>
+                            <a class="ico-github" href="http://github.com/zhanjindong/" rel="me" target="_blank" title="GitHub Page"></a>
+                            <a class="ico-gmail" href="http://scr.im/zhanjindongme/" rel="me" target="_blank" title="Email Address"></a>
+                            <a class="ico-stackoverflow" href="http://stackoverflow.com/users/4186131/jindong" rel="me" target="_blank" title="StackOverflow Profile"></a>
+                            <a class="ico-rss" href="/rss.xml" rel="me" target="_blank" title="RSS Feeds"></a>
+                        </div>
+                    </div><!-- misc -->
+                </div><!-- unit-foot-inner -->
+            </div><!-- unit-foot -->
+            <a href="#" class="internal back-to-top">Back to Top</a>
+        </footer>
+    </div><!-- page -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/jquery-1.11.0.min.js"><\/script>')</script>
+
+<!-- Loading progess bar plugin -->
+<!--[if !IE]> -->
+	<script src="//cdnjs.cloudflare.com/ajax/libs/pace/0.4.17/pace.min.js"></script>
+	<script>window.Pace || document.write('<script src="/assets/js/pace.min.js"><\/script>')</script>
+<!-- <![endif]-->
+
+<script>
+	$(document).ready(function () {
+		var offset = 50, duration = 500, width = 960;
+		$(window).scroll(function () {
+			if ($(window).width() > width) {
+				if ($(this).scrollTop() > offset) {
+					$('footer').css('top', '20px');
+					$('footer .back-to-top').fadeIn(duration);
+				} else {
+					$('footer').css('top', 'auto');
+					$('footer .back-to-top').fadeOut(duration);
+				}
+			}
+		});
+		$(window).resize(function () {
+			if ($(window).width() < width) {
+				$('footer').css('top', 'auto');
+				$('footer .back-to-top').fadeOut(duration);
+			}
+			if ($(window).width() >= width && $(this).scrollTop() > offset) {
+				$('footer').css('top', '20px');
+				$('footer .back-to-top').fadeIn(duration);
+			}
+		});
+
+		$('footer .back-to-top').click(function (event) {
+			event.preventDefault();
+			$('html, body').animate({scrollTop: 0}, duration);
+			return false;
+		});
+	});
+</script>
+
+<!-- Google Analytics Event tracking -->
+<script>
+var sendGaEvent = function(category, action, label) {
+	if (label === 'undefined') {
+		ga('send', 'event', category, action);
+	} else {
+		ga('send', 'event', category, action, label.trim());
+	}
+};
+
+$(document).ready(function () {
+	$('.the-header .nav-link a').on('click', function() {
+		label = (this.getAttribute('data-ga') !== null) ? this.getAttribute('data-ga') : this.textContent;
+		sendGaEvent('Internal Links', 'Click', label);
+	});
+	$('.the-header .nav-link button').on('click', function() {
+		sendGaEvent('Navigation Buttons', 'Click', this.getAttribute('data-ga'));
+	});
+
+	$('[class$=wrapper] .results a').on('click', function() {
+		sendGaEvent('Overlay Links', 'Click', this.textContent);
+	});
+
+	$('.the-footer .about a').on('click', function() {
+		sendGaEvent('Footer Links', 'Click', this.textContent);
+	});
+	$('.the-footer .social-links > a').on('click', function() {
+		sendGaEvent('Social Links', 'Click', this.title);
+	});
+
+	$('.tag_box.categories a').on('click', function() {
+		sendGaEvent('Categories', 'Click', this.title);
+	});
+	$('.tag_box.tags a').on('click', function() {
+		sendGaEvent('Tags', 'Click', this.title);
+	});
+
+	$('a.internal, .unit-article .comment .show-hidden').on('click', function() {
+		label = (this.getAttribute('data-ga') !== null) ? this.getAttribute('data-ga') : this.textContent;
+		sendGaEvent('Internal Links', 'Click', label);
+	});
+
+	$('.unit-article .meta .author').on('click', function() {
+		sendGaEvent('Post meta Links', 'Click', 'Author');
+	});
+	$('.unit-article .meta .license').on('click', function() {
+		sendGaEvent('Post meta Links', 'Click', 'License');
+	});
+	$('.unit-article .meta .list-linear a').on('click', function() {
+		if (this.getAttribute('data-ga') !== null){
+			sendGaEvent('Post meta Links', 'Click', this.getAttribute('data-ga'));
+		}
+	});
+});
+</script>
+
+<!-- Show menu overlay + Jekyll Simple Search option -->
+<script src="/assets/js/jekyll-search.jquery.js"></script>
+<script>
+	$(document).ready(function() {
+		$('.search-field').simpleJekyllSearch({
+			jsonFile : '/search.json',
+			template : '<li><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></li>',
+			searchResults: '.search-wrapper .results',
+			searchResultsTitle : '<h4>Search results</h4>',
+			noResults : '<p>Oh shucks<br/><small>Nothing found :(</small></p>'
+		});
+	});
+
+	(function($, window, undefined) {
+		var closeOverlay = function() {
+			$('.nav-wrapper, .search-wrapper').removeAttr('style');
+			$(".nav-form, .search-form").removeClass('active');
+			$("body").removeClass('nav-overlay search-overlay');
+		};
+
+		$('.nav-global .btn-search').on('click', function() {
+			$('.search-wrapper').css({ display: "block" });
+			$(".search-form").addClass('active');
+			$(".search-form").find('input').focus();
+			$("body").addClass('search-overlay');
+		});
+
+		$('.nav-global .btn-menu').on('click', function() {
+			$('.nav-wrapper').css({ display: "block" });
+			$(".nav-form").addClass('active');
+			$(".nav-form .search-field").prop('disabled', true);
+			$("body").addClass('nav-overlay');
+		});
+
+		$('.nav-wrapper .btn-close, .search-wrapper .btn-close').on('click', function() {
+			closeOverlay();
+		});
+
+		$(document).on('keyup', function(e) {
+			if(e.keyCode === 27) {
+				closeOverlay();
+			}
+		});
+	})(jQuery, window);
+</script>
+
+
+
+
+
+</body>
+</html>
+
