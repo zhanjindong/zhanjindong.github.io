@@ -1,0 +1,16 @@
+---
+layout: page
+title: Test
+header: Assets
+description: "."
+group: navigation
+priority: 0.8
+js_utils: back-to-top
+---
+<ul>
+  {% directory path: assets/pdf exclude: private %}
+    <li>
+      <a href="{{ file.url }}" >{{ file.name }}</a>{% unless forloop.last %} {% endunless %}	
+    </li>
+  {% enddirectory %}
+</ul>
