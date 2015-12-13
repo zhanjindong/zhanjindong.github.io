@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Synology DSM Git Server配置"
-description: "Synology DSM Git Server配置"
-categories: [NAS]
+title: "[NAS] Synology DSM Git Server配置"
+description: "[NAS] Synology DSM Git Server配置"
+categories: [articles]
 tags: [NAS]
 alias: [/2015/11/21/]
 utilities: fancybox,unveil,highlight

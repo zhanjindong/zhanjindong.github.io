@@ -2,7 +2,7 @@
 layout: post
 title: "Synology NAS 外部访问"
 description: "Synology NAS 外部访问"
-categories: [NAS]
+categories: [articles]
 tags: [NAS]
 alias: [/2015/11/23/]
 utilities: fancybox,unveil,highlight
