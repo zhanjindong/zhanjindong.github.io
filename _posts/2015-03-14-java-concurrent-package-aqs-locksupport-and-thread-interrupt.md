@@ -105,7 +105,7 @@ class BoundedBuffer1 {
 } 
 {% endhighlight %}
 
-上面的例子中有一点需要知道，在调用对象的`wait`之前当前线程必须先获得该对象的监视器（`synchronized`），被唤醒之后需要重新获取到监视器才能继续执行。
+上面的例子中有一点需要知道，在调用对象的`wait`之前当前线程必须先释放该对象的监视器（`synchronized`），被唤醒之后需要重新获取到监视器才能继续执行。
 
 {% highlight Java %}
 //wait会先释放当前线程拥有的监视器
