@@ -3,7 +3,7 @@ layout: post
 title: "新年新技术:HTTP/2"
 description: "新年新技术:HTTP/2"
 categories: [notes]
-tags: [Technique]
+tags: [HTTP]
 alias: [/2015/03/09/]
 utilities: fancybox,unveil,highlight
 ---

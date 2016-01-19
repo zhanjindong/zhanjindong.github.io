@@ -3,7 +3,7 @@ layout: post
 title: "新年新技术:MongoDB 3.0"
 description: "新年新技术:MongoDB 3.0"
 categories: [notes]
-tags: [Technique]
+tags: [MongoDB]
 alias: [/2015/03/09/]
 utilities: fancybox,unveil,highlight
 ---
@@ -109,6 +109,24 @@ MongoDB 3.0使用[power of 2 allocation][2]代替原来的动态记录分配，�
 [MongoDB 3.0][9]
 
 
+## 【补充】MongoDB 3.2
+
+- WiredTiger作为默认的存储引擎。
+
+- 副本集的选举性能能提升，新的协议（protocolVersion:1）支持electionTimeoutMillis选举超时配置。
+
+- 分片集群性能提升，config server可以做副本集部署解决单点问题（只能使用WiredTiger ）。
+
+- readConcern：副本集，分片副本集结构，对于WiredTiger引擎可以设置为majority，避免读脏数据的问题。
+
+- 部分索引：建立索引的时候可以跟上一个表达式，只对满足条件的文档建立索引，这样可以减小索引建立和维护的成本，降低内存使用。是稀疏索引功能的超集，但性能会更好。
+
+- 文档验证，在更新插入操作的时候对文档内容进行验证，比如phone字段是否是一个合法的手机号码。
+
+- 聚合框架的性能提升。
+
+更多内容参看 [MongoDB 3.2][11] 
+
 [1]: http://docs.mongodb.org/manual/administration/production-notes/#prod-notes-wired-tiger-concurrency
 [2]: http://docs.mongodb.org/manual/core/storage/#power-of-2-allocation
 [3]: http://docs.mongodb.org/manual/reference/glossary/#term-padding-factor
@@ -119,3 +137,4 @@ MongoDB 3.0使用[power of 2 allocation][2]代替原来的动态记录分配，�
 [8]: http://en.wikipedia.org/wiki/Slow-start
 [9]: http://docs.mongodb.org/manual/release-notes/3.0/
 [10]: https://http2.github.io
+[11]: https://docs.mongodb.org/manual/release-notes/3.2/
