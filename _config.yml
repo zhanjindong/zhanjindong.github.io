@@ -158,8 +158,8 @@ translations:
   # navigation
   archives: 'Archives'
   articles: 'Articles'
-  notes: 'Notes'
   categories: 'Categories'
+  assets: 'Assets'
   tags: 'Tags'
   search: 'Search'
 
