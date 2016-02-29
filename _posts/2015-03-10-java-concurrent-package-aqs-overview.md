@@ -155,9 +155,9 @@ main thread unlock!
 看源码一定要有目的不能为了看而看。
 
 
-[1]: http://jindong.io/2015/01/20/concurrent-and-tomcat-threads/
-[2]: http://jindong.io/2015/03/11/java-concurrent-package-aqs-clh-and-spin-lock/
-[3]: http://jindong.io/2015/03/14/java-concurrent-package-aqs-locksupport-and-thread-interrupt/
-[4]: http://jindong.io/2015/03/14/java-concurrent-package-aqs-AbstractQueuedSynchronizer/
+[1]: http://zhanjindong.com/2015/01/20/concurrent-and-tomcat-threads/
+[2]: http://zhanjindong.com/2015/03/11/java-concurrent-package-aqs-clh-and-spin-lock/
+[3]: http://zhanjindong.com/2015/03/14/java-concurrent-package-aqs-locksupport-and-thread-interrupt/
+[4]: http://zhanjindong.com/2015/03/14/java-concurrent-package-aqs-AbstractQueuedSynchronizer/
 
 
