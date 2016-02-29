@@ -16,7 +16,7 @@ kramdown:
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title: Jindong
+title: Jack Zhan
 description: "Personal blog for Jindong, a software engineer based in Hefei, China."
 # tagline: Site Tagline
 author:
@@ -34,8 +34,8 @@ author:
 # Else if you are pushing to username.github.io, replace with your username.
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 #
-production_url: http://jindong.io
-url: http://jindong.io
+production_url: http://jackzhan.com
+url: http://jackzhan.com
 
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
