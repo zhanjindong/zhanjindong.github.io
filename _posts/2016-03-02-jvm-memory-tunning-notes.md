@@ -86,11 +86,11 @@ But besides the memory consumed by your application, the JVM itself also needs s
 
 - JIT optimization. Java Virtual Machine optimizes the code during runtime. Again, to know which parts to optimize it needs to keep track of the execution of certain code parts. So again, you are going to lose memory.
 
--Off-heap allocations. If you happen to use off-heap memory, for example while using direct or mapped ByteBuffers yourself or via some clever 3rd party API then voila – you are extending your heap to something you actually cannot control via JVM configuration.
+- Off-heap allocations. If you happen to use off-heap memory, for example while using direct or mapped ByteBuffers yourself or via some clever 3rd party API then voila – you are extending your heap to something you actually cannot control via JVM configuration.
 
 - JNI code. When you are using native code, for example in the format of Type 2database drivers, then again you are loading code in the native memory.
 
--Metaspace. If you are an early adopter of Java 8, you are using metaspace instead of the good old permgen to store class declarations. This is unlimited and in a native part of the JVM.
+- Metaspace. If you are an early adopter of Java 8, you are using metaspace instead of the good old permgen to store class declarations. This is unlimited and in a native part of the JVM.
 
 虚拟内存不重要，尤其是在64位操作系统上，重要的是RSS，但是有时它也不一定就说明你的程序实际需要使用的内存。JVM占用的物理内存超过-Xmx设置的值？
 
