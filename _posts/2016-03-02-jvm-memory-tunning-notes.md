@@ -162,7 +162,7 @@ Once you have determined you are running out of native memory, the next logical 
 - Emulator-based:  memcheck
 - JNI leaking: Valgrind memcheck http://www.oracle.com/technetwork/java/javase/memleaks-137499.html#gbyvk
 - Java core file: http://www.javacodegeeks.com/2013/02/analysing-a-java-core-dump.html
-- NMT Native Memory Tracking: https://docs.oracle.com/javase/8/docs/technotes/guides/troubleshoot/tooldescr007.html
+- NMT Native Memory Tracking: https://docs.oracle.com/javase/8/docs/technotes/guides/troubleshoot/tooldescr007.html 注意目前（7u40）NMT只能用来分析HotSpot internal memory usage，不能分析第三方的JNI.
 - GCMV: https://www.ibm.com/developerworks/java/jdk/tools/gcmv/ https://www.ibm.com/developerworks/community/blogs/troubleshootingjava/entry/gcmv_native_memory?lang=en
 
 相比分析堆内存的泄漏，分析non-heap的要困难的多，不同的场景需要不同的工具去分析。
