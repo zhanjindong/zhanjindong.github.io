@@ -34,7 +34,18 @@ Max memory = [-Xmx] + [-XX:MaxPermSize] + number_of_threads * [-Xss]
 </div>
 <br/>
 
-commited可能会比init小，因为JVM可能会将内存还给OS，但是一定不会小于used,也就是commited是操做系统保证JVM可以使用的内存空间，但是不一定都使用了。init是启动时后JVM向OS申请的内存，max是能够使用的最大边界值。注意这里说的都是虚拟内存，所以理论上整个操做系统commited的内存为物理内存加上交换空间的大小，换句话说如果commited超过物理内存的话，多余的部分就会被换出到磁盘。
+reserved memory 是指JVM 通过mmaped PROT_NONE 申请的虚拟地址空间，在页表中已经存在了记录（entries），保证了其他进程不会被占用，会page faults,
+committed memory 是JVM向操做系统实际分配的内存（malloc/mmap）,mmaped PROT_READ | PROT_WRITE,仍然会page faults 但是跟 eserved 不同，完全内核处理像什么也没发生一样。
+used memory 是JVM实际存储了数据（Java对象）的大小，当used~=committed的时候，heap就会grow up，-Xmx设置了上限。
+
+关于committed,reserved以及rss之间的关系实际情况要复杂的多：
+
+- reserved 但是没有 committed pages 不算 rss.
+- page out 的算committed，但是不算 rss.
+- 已经 committed 的也不一定在rss内(committed > rss): malloc/mmap is lazy unless told otherwise. Pages are only backed by physical memory once they're accessed. 
+
+
+committed 可能会比init小，因为JVM可能会将内存还给OS，但是一定不会小于used,也就是commited是操做系统保证JVM可以使用的内存空间，但是不一定都使用了。init是启动时后JVM向OS申请的内存，max是能够使用的最大边界值。注意这里说的都是虚拟内存，所以理论上整个操做系统commited的内存为物理内存加上交换空间的大小，换句话说如果commited超过物理内存的话，多余的部分就会被换出到磁盘。
 
 JVM（堆）占用的物理内存是跟committed相关，committed变小意味着JVM将内存还给OS了，则同过top命令看到的RSS会变小。
 
