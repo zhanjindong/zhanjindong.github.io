@@ -35,7 +35,7 @@ Max memory = [-Xmx] + [-XX:MaxPermSize] + number_of_threads * [-Xss]
 <br/>
 
 reserved memory 是指JVM 通过mmaped PROT_NONE 申请的虚拟地址空间，在页表中已经存在了记录（entries），保证了其他进程不会被占用，会page faults,
-committed memory 是JVM向操做系统实际分配的内存（malloc/mmap）,mmaped PROT_READ | PROT_WRITE,仍然会page faults 但是跟 eserved 不同，完全内核处理像什么也没发生一样。
+committed memory 是JVM向操做系统实际分配的内存（malloc/mmap）,mmaped PROT_READ | PROT_WRITE,仍然会page faults 但是跟 reserved 不同，完全内核处理像什么也没发生一样。
 used memory 是JVM实际存储了数据（Java对象）的大小，当used~=committed的时候，heap就会grow up，-Xmx设置了上限。
 
 关于committed,reserved以及rss之间的关系实际情况要复杂的多：
