@@ -31,8 +31,8 @@ HTTP是一种无连接的事务协议，底层使用的还是TCP，连接池复�
 1. 检查返回response报文头的Transfer-Encoding字段，若该字段值存在且不为chunked，则连接不保持，直接关闭。
 2. 检查返回的response报文头的Content-Length字段，若该字段值为空或者格式不正确（多个长度，值不是整数），则连接不保持，直接关闭。
 3. 检查返回的response报文头的Connection字段（若该字段不存在，则为Proxy-Connection字段）值：
-	1. 如果这俩字段都不存在，则1.1版本默认为保持， 1.0版本默认为连接不保持，直接关闭。
-	2. 如果字段存在，若字段值为close 则连接不保持，直接关闭；若字段值为keep-alive则连接标记为保持。
+	1) 如果这俩字段都不存在，则1.1版本默认为保持， 1.0版本默认为连接不保持，直接关闭。
+	2) 如果字段存在，若字段值为close 则连接不保持，直接关闭；若字段值为keep-alive则连接标记为保持。
 
 ## 2、 保持多长时间？
 
@@ -48,6 +48,7 @@ closeExpiredConnections和closeIdleConnections两个方法。
 参考文章
 
 [HTTP协议头部与Keep-Alive模式详解][1]
+
 [又见KeepAlive][2]
 
 [1]: https://zhanjindong.com/2015/05/08/http-keep-alive-header
