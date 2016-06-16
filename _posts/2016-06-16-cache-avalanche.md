@@ -3,19 +3,19 @@ layout: post
 title: "使用HashMap进行本地缓&预防缓存雪崩"
 description: "使用HashMap进行本地缓&预防缓存雪崩"
 categories: [notes]
-tags: [HttpClient]
+tags: [Cache]
 alias: [/2016/06/16/]
-utilities: fancybox,unveil,highlight
+utilities: fancybox, unveil, highlight
 ---
 
 高并发下程序首先出现瓶颈的地方往往是I/O，为了追求更高的性能，我们经常把数据加载到本地的内存里进行存取，一般使用的数据结构就是HashMap。
 这时有一个问题我们不得不考虑，就是“缓存雪崩”，所谓雪崩就是指当缓存失效的一瞬间，会有大量的请求的落到后端的数据库上面，造成性能问题。
 
 为了解决这个问题，我们在HashMap上面封装了一层，整体思路比较简单：
-1、 每个Key维护一个过期时间(atime)和更新时间(uptime)；
-2、 当value过期的时候，将uptime更新为当前时间；
-3、 线程get数据的时候，首先检查当前的atime有没有过期，如果过期了则将atime加上一个指定“不新鲜”时间段 stale；
-4、发现数据过期的线程去加载最新的数据，其余的线程在 stale 时间段内返回“不新鲜”的老数据，过后就返回最新数据。
+1. 每个Key维护一个过期时间(atime)和更新时间(uptime)；
+2. 当value过期的时候，将uptime更新为当前时间；
+3. 线程get数据的时候，首先检查当前的atime有没有过期，如果过期了则将atime加上一个指定“不新鲜”时间段 stale；
+4. 发现数据过期的线程去加载最新的数据，其余的线程在 stale 时间段内返回“不新鲜”的老数据，过后就返回最新数据。
 
 为了保证每次缓存更新的时候只会有一个线程去更新数据，其余的线程仍然返回老数据，2和3两个步骤可能需要加锁，加锁带来的锁竞争必然会有性能损失。
 
