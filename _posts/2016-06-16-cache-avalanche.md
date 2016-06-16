@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "使用HashMap进行本地缓&预防缓存雪崩"
-description: "使用HashMap进行本地缓&预防缓存雪崩"
+title: "本地缓存的雪崩预防"
+description: "本地缓存的雪崩预防"
 categories: [notes]
 tags: [Cache]
 alias: [/2016/06/16/]
@@ -207,12 +207,6 @@ public class CacheMapWrapper<K, V> {
 
 
 ### 使用CacheMapWrapper 将ReentrantLock换成ReadWriteReentrantLock读写锁
-
-
-<a class="post-image" href="/assets/images/posts/concurrenthashmap-tps.png">
-<img itemprop="image" data-src="/assets/images/posts/concurrenthashmap-tps.png" src="/assets/js/unveil/loader.gif" alt="concurrenthashmap-tps.png" />
-</a>
-
 
 <a class="post-image" href="/assets/images/posts/cachemap2-cpu.png">
 <img itemprop="image" data-src="/assets/images/posts/cachemap2-cpu.png" src="/assets/js/unveil/loader.gif" alt="cachemap2-cpu.png" />
