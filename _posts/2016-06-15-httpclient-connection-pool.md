@@ -51,6 +51,17 @@ closeExpiredConnections和closeIdleConnections两个方法。
 
 [又见KeepAlive][2]
 
+
+## 引申阅读
+
+[浅谈CLOSE_WAIT][3]
+
+[又见CLOSE_WAIT][4]
+
 [1]: https://zhanjindong.com/2015/05/08/http-keep-alive-header
 
 [2]: https://zhanjindong.com/2015/09/20/tcp-keep-alive
+
+[3]: http://huoding.com/2016/01/19/488
+
+[4]: http://mp.weixin.qq.com/s?__biz=MzI4MjA4ODU0Ng==&mid=402163560&idx=1&sn=5269044286ce1d142cca1b5fed3efab1&3rd=MzA3MDU4NTYzMw==&scene=6#rd
