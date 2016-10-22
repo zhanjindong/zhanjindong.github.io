@@ -1,0 +1,43 @@
+html{color:#000;background:#FFF;font-size:14px;background:url(../images/topbg.gif) repeat-x;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}
+table{border-collapse:collapse;border-spacing:0}
+fieldset,img{border:0}
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}
+ol,ul{list-style:none}
+caption,th{text-align:left}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}
+q:before,q:after{content:''}
+abbr,acronym{border:0;font-variant:normal}
+sup{vertical-align:text-top}
+sub{vertical-align:text-bottom}
+input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit}
+input,textarea,select{*font-size:100%}
+legend{color:#000}
+a:link{color:#F60;text-decoration:none;}
+a:hover{color:#F60;text-decoration:underline;}
+img{max-width:773px;}
+
+.main{width:773px;background:url(../images/top.gif) no-repeat;margin:20px auto;height:1000px;}
+.domain{color:#217300;font-size:14px;font-weight:bold;padding:25px;overflow:hidden;*zoom:1;}
+.domain span{font-family:"Microsoft Yahei";font-size:30px;color:#194d04;font-weight:bold;display:block;margin-bottom:10px;}
+.contact{border:1px solid #d0d0cf;border-radius:10px;width:730px;background:#FFFFFF;margin:0px auto 20px auto;position:relative;overflow:hidden;*zoom:1;}
+.contact_t{font-weight:bold;color:#467f30;font-size:14px;margin-bottom:10px;}
+.contact dl,.dm_time{display:inline-block;*display:inline;*zoom:1;}
+.contact dl{padding:20px 0px 10px 15px;font-size:12px}
+.contact dd{line-height:25px;padding-left:24px;}
+.dm_time{width:66%;border-left:1px dashed #cccccc;vertical-align:top;}
+.timeout{border-bottom:1px dashed #cccccc;height:60px;line-height:60px;padding-left:20px;}
+.timeout span{padding-right:30px;}
+.email{background:url(../images/ico.gif) no-repeat 0 6px;}
+.tel{background:url(../images/ico.gif) no-repeat 0 -18px;}
+.qq{background:url(../images/ico.gif) no-repeat 0 -43px;}
+.btn{display:block;background:url(../images/btn.gif) no-repeat;width:80px;height:21px;color:#FFF!important;text-decoration:none!important;font-size:12px;font-weight:bold;line-height:21px;text-align:center;cursor:pointer;}
+.detail{position:absolute;top:20px;right:10px;}
+.sale{display:inline-block;*display:inline;*zoom:1;margin:0 5px;}
+.dm_sale{font-size:12px;padding:15px;}
+.dm_title{background:#79a871;border-radius:5px;text-align:center;height:31px;line-height:31px;color:#FFFFFF;font-weight:bold;margin:10px auto;}
+.dm_dec{font-size:12px;line-height:25px;width:735px;margin:0 auto;overflow:hidden;*zoom:1;}
+.dm_text{padding-left:15px;}
+.ads{background:#eeeeee;padding:10px 0;width:729px;margin:10px auto;}
+.footer{border-top:1px dashed #CCCCCC;width:600px;margin:30px auto;text-align:center;color:#666666;padding:20px 0;overflow:hidden;*zoom:1;}
+.stat{display:none;}
