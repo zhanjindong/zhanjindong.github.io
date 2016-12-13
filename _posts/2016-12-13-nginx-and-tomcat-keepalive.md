@@ -2,7 +2,7 @@
 layout: post
 title: "又又见KeepAlive"
 description: "又又见KeepAlive"
-categories: [转载]
+categories: [articles]
 tags: [Nginx,KeepAlive]
 alias: [/2016/12/13/]
 utilities: fancybox,unveil,highlight
@@ -34,8 +34,6 @@ utilities: fancybox,unveil,highlight
 <a class="post-image" href="/assets/images/posts/20161213-6.png">
 <img itemprop="image" data-src="/assets/images/posts/20161213-6.png" src="/assets/js/unveil/loader.gif" alt="20161213-6.png" />
 </a>
-
-从上面的测试，我得出以下几点认识：
 
 - 显然keepalive需要client和sever同时支持才生效；
 - 未使用keepalive（无论是客户端还是服务端不支持），服务端会主动关闭TCP连接，存在大量的TIME_WAI；
