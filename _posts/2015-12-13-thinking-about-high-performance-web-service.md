@@ -44,5 +44,6 @@ utilities: fancybox,unveil,highlight
 
 最后，实际情况要复杂的多，考虑网络因素，用户实际的平均请求延迟时间会更大，而且通常我们缺少这样的数据参考，所以现在很多都在做端到端的监控。
 
+参考文档
 
-
+性能测试应该怎么做？ http://coolshell.cn/articles/17381.html
