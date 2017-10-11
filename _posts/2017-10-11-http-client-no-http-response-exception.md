@@ -85,6 +85,12 @@ closeIdleConnections方法时才会关闭，而这个超时设置的是30s，因
 
 参考文章：
 
+[http://www.yeetrack.com/?p=782][1]
+
+[http://blog.csdn.net/kobejayandy/article/details/44284057][2]
+
+[https://stackoverflow.com/questions/10558791/apache-httpclient-interim-error-nohttpresponseexception][3]
+
 [1]: http://www.yeetrack.com/?p=782
 [2]: http://blog.csdn.net/kobejayandy/article/details/44284057
 [3]: https://stackoverflow.com/questions/10558791/apache-httpclient-interim-error-nohttpresponseexception
