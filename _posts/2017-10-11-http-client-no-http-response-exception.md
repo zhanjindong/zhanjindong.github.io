@@ -38,7 +38,8 @@ closeIdleConnections方法时才会关闭，而这个超时设置的是30s，因
 
 - 客户端使用短连接，比如换成UrlConnection；
 - 将HttpClient连接保活时间调的小于15s或者将nginx的keepalive_timeout调的大于30s；
-- 不用PoolingHttpClientConnectionManager。
+- 不用PoolingHttpClientConnectionManager；
+- 出错后重试，HttpClient的RetryHandler.
 
 
 下面是排查中的一些抓包：
