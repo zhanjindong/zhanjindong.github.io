@@ -3,9 +3,9 @@ layout: post
 title: "HttpClient NoHttpResponseException问题排查"
 description: "HttpClient NoHttpResponseException问题排查"
 categories: [articles]
-tags: [Nginx,KeepAlive]
+tags: [httpclient,keepalive,tcp]
 alias: [/2017/10/11/]
-utilities: httpclient,keepalive,tcp
+utilities: fancybox,unveil,highlight
 ---
 
 
